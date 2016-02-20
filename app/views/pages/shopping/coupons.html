@@ -1,0 +1,88 @@
+<div class="layout-row" layout-sm="column" layout-xs="column">
+	<div class="mdl-cell shadow grid-margin" style="background: white;" flex="100" flex-sm="100">
+		<div class="panel-header">
+      Coupons List
+      <span class="cog">
+        <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+          <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+        </md-button>
+      </span>
+		</div>
+      <div class="panel-body">
+				<div class="table-responsive" ng-if="tableParams.data.length == 0">
+					<md-content flex layout-padding>
+					</md-content>
+				</div>
+        <div class="table-responsive" ng-if="tableParams.data.length > 0">
+
+          <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+
+            <div class="row action-buttons">
+              <div class="col-md-5">
+                <md-button type="button" ng-click="openForm($event)" class="md-raised md-primary">New</<md-button>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <div>
+									<md-input-container>
+			                <input type="text" ng-model="searchQuery" placeholder="Search" >
+			            </md-input-container>
+									<md-button type="button" ng-click="search()" class="md-raised md-primary">Search</<md-button>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-left: 0; margin-right: 0" ng-if="false" >
+              <div ui-grid="gridOptions2" ui-grid-pagination class="grid"></div>
+            </div>
+
+            <div class="row" style="margin-left: 0; margin-right: 0">
+
+              <table ng-table="tableParams" class="table table-bordered" >
+                <tr ng-repeat="coupon in $data">
+									<td title="" style="width: 40px">
+										<md-checkbox ng-click="select(coupon)"> </md-checkbox>
+									</td>
+                  <td title="'Code'" sortable="'code'">{{coupon.code}}</td>
+                  <td title="'Name'"  sortable="'name'">{{coupon.name}}</td>
+                  <td title="'Description'" sortable="'description'">{{coupon.description}}</td>
+                  <td title="'Categories'"  sortable="'limitCategories'">{{coupon.limitCategories}}</td>
+                  <td title="'SKUs'" sortable="'limitSkus'">{{coupon.limitSkus}}</td>
+                  <td title="'minOrder'"  sortable="'minOrder'">{{coupon.minOrder}}</td>
+                  <td title="'DiscountType'"  sortable="'discountType'">{{coupon.discountType}}</td>
+                  <td title="'Discount'" sortable="'discount'">{{coupon.discount}}</td>
+
+                  <td class="center">
+
+                    <a class="btn btn-primary btn-xs" href="javascript:;" data-original-title="Edit" data-toggle="tooltip" ng-click="openForm($event,coupon)">
+                      <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" href="javascript:;" data-original-title="Remove" data-toggle="tooltip" >
+                      <i class="fa fa-times"></i>
+                    </a>
+
+										<md-button class="md-icon-button md-warn" aria-label="Settings"  ng-click="deleteCoupon(coupon)">
+						          <md-icon ><i class="mdi mdi-delete" ></i></md-icon>
+						        </md-button>
+
+
+
+										<md-switch class="md-primary" md-no-ink ng-model="coupon.active" ng-change="activate(coupon)">
+									  </md-switch>
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div
+  </div>
+
+</div>

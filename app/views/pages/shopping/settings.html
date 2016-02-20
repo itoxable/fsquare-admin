@@ -1,0 +1,167 @@
+<div layout="row" layout-sm="column" layout-xs="column" class="mdl-grid" style="margin-top:15px;">
+    <div class="mdl-cell" flex="100" flex-sm="100" flex-xs="100" style="background: white;">
+        <div class="panel-header">
+            Shopping Settings
+        </div>
+        <div class="panel-body forms">
+          <form action="#" style="border-radius: 0px;" class="form-horizontal">
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Name</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.name">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Default Email Address</label>
+              <div class="col-sm-6">
+                <input type="email" class="form-control" ng-model="storeSettings.defaultEmailAddress">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Country</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.country">
+                  <option>Select...</option>
+                  <option ng-repeat="country in settings.countries" value="{{country.a2}}">{{country.nameCurrentValue}}</option>
+                </select>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Products Main Page</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.productsMainPageUuid">
+                  <option>Select...</option>
+                  <option ng-repeat="layout in settings.layouts" value="{{layout.key}}">{{layout.value}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Cart Display Page</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.cartPageUuid">
+                  <option>Select...</option>
+                  <option ng-repeat="layout in settings.layouts" value="{{layout.key}}">{{layout.value}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Checkout Main Page</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.checkoutPageUuid">
+                  <option>Select...</option>
+                  <option ng-repeat="layout in settings.layouts" value="{{layout.key}}">{{layout.value}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                <md-checkbox md-no-ink aria-label="Checkout Page Fullscreen" ng-model="storeSettings.checkoutPageFullscreen" class="md-primary">
+                    Checkout Page Fullscreen
+                </md-checkbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">On add to cart</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.onAddToCart">
+                  <option>Select...</option>
+                  <option ng-repeat="entry in settings.ON_ADD_TO_CART" value="{{entry}}">{{entry}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Currency</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.currency">
+                  <option>Select...</option>
+                  <option ng-repeat="entry in settings.currencies" value="{{entry}}">{{entry}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Users Type</label>
+              <div class="col-sm-6">
+                <select class="form-control" ng-model="storeSettings.userTypes">
+                  <option>Select...</option>
+                  <option ng-repeat="entry in settings.USER_TYPES" value="{{entry}}">{{entry}}</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                <md-checkbox md-no-ink aria-label="Integrate With Braintree" ng-model="storeSettings.integrateWithBraintree" class="md-primary">
+                    Integrate With Braintree
+                </md-checkbox>
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Braintree MerchantId</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.braintreeMerchantId">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Braintree Private Key</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.braintreePrivateKey">
+              </div>
+            </div>
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Braintree Public Key</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.braintreePublicKey">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="col-sm-3"></div>
+              <div class="col-sm-6">
+                <md-checkbox md-no-ink aria-label="Integrate With Braintree" ng-model="storeSettings.useBraintreeSandbox" class="md-primary">
+                    Use Braintree Sandbox
+                </md-checkbox>
+              </div>
+            </div>
+
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Braintree Sandbox MerchantId</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.braintreeSandboxMerchantId">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Braintree Sandbox Private Key</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.braintreeSandboxPrivateKey">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label class="col-sm-3 control-label">Braintree Sandbox Public Key</label>
+              <div class="col-sm-6">
+                <input type="text" class="form-control" ng-model="storeSettings.braintreeSandboxPublicKey">
+              </div>
+            </div>
+
+
+
+
+          </form>
+            <md-button class="md-raised md-primary" ng-click="save()"> Submit</md-button>
+        </div>
+    </div>
+</div>

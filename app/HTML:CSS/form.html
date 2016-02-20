@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from material-admin.strapui.com/form by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Sep 2015 13:24:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Material Laravel Dashboard | 	Form
+</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="" name="description"/>
+	<meta content="" name="author"/>
+	
+	<link rel="stylesheet" href="css/vendor.css" />
+	<link rel="stylesheet" href="css/app-blue.css" />
+	<link rel="shortcut icon" href="favicon.ico">
+
+</head>
+	<body class="small-sidebar ">
+		
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header navbar shadow">
+        <div class="mdl-layout__header-row">
+            <!-- Hamburger -->
+            <button class="c-hamburger c-hamburger--htla">
+                <span>toggle menu</span>
+            </button>
+            <div class="responsive-logo">
+                Material <br><span class="smaller">Dashboard</span>
+            </div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <!-- Left aligned menu below button -->
+                <button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="mdi mdi-brightness-1 text-primary"></i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect zero-padding"
+                    for="demo-menu-lower-left">
+                    <table class="color-picker">
+                        <tr>
+                            <td><a href="#" id="blue" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                            <td><a href="#" id="red" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" id="grey" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                            <td><a href="#" id="green" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" id="purple" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                            <td><a href="#" id="cyan" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                        </tr>
+                    </table>               
+                </ul>
+
+            </nav>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <a class="mdl-button mdl-js-button primary mdl-js-ripple-effect mdl-button--raised mdl-layout--large-screen-only" style="margin-right: 10px; margin-bottom: 5px;" href="http://www.strapui.com/themes/material-dashboard-admin-laravel/">
+              Buy Now
+            </a>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-layout--large-screen-only">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                for="fixed-header-drawer-exp">
+                <i class="mdi mdi-magnify"></i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                    id="fixed-header-drawer-exp" />
+                </div>
+            </div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <button id="demo-menu-lower-right2" class="mdl-button mdl-js-button nav-button">
+                    <div class="mdl-badge" data-badge="3"><i class="mdi mdi-email"></i></div>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right2">
+                    <li class="mdl-menu__item"><a href="inbox.html">Mail from Elsa</a></li>
+                    <li class="mdl-menu__item"><a href="inbox.html">Inbox</a></li>
+                    <li class="mdl-menu__item"><a href="inbox.html">Tickets confirmed</a></li>
+                    <li class="mdl-menu__item"><a href="inbox.html">Check here</a></li>
+                </ul>
+                <button id="demo-menu-lower-right3" class="mdl-button mdl-js-button nav-button">
+                   <div class="mdl-badge" data-badge="7"><i class="mdi mdi-bell"></i></div>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right3">
+                    <li class="mdl-menu__item">2 new friends</li>
+                    <li class="mdl-menu__item">4 new messages</li>
+                    <li class="mdl-menu__item">Friend request accepted</li>
+                    <li class="mdl-menu__item">No new notifs.</li>                   
+                </ul>
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button nav-button">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item">Some Action</li>
+                    <li class="mdl-menu__item"><a href="login.html">Logout</a></li>
+                    <li class="mdl-menu__item">Disabled Action</li>
+                    <li class="mdl-menu__item">Yet Another Action</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Side bar here -->
+    <aside id="" class="sidebar">
+        <div class="top-logo">
+            M
+        </div>
+        <div class="top-logo-extended">
+            Material <br/> <span class="smaller">dashboard</span>
+        </div>
+        <div class="scrollbar" id="scroll" style="height: 100%;">
+            <div class="user-info">
+                <div class="opacity">
+                    <a href="profile.html"><img src="images/profile.jpg" alt="" class="sidebar-profile"></a>
+                    <div class="info">
+                        Sankhadeep Roy <br /> <span class="smaller">Striker at Liverpool FC</span>
+                    <div class="pen">
+                        <a href="#" class=""><i class="mdi mdi-border-color"></i></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-menu">
+                <ul class="menu-list">
+                    <li ><a href="index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-home"></i> &nbsp;<span class="text"> Home</span></a></li>
+                    <li class="show-subnav" ><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect show-menu"><i class="mdi mdi-arrange-bring-to-front"></i> &nbsp;<span class="text"> UI-Elements</span><i class="mdi mdi-chevron-down"></i></a>
+                        <ul class="sub-menu ">
+                            <li ><a href="ui-elements/button.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">Buttons</span></a></li>
+                            <li ><a href="ui-elements/card.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">Cards</span></a></li>
+                            <li ><a href="ui-elements/components.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">Components</span></a></li>
+                        </ul>
+                    </li>
+                    <li class=active><a href="form.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-receipt"></i> &nbsp;<span class="text"> Form</span></a></li>
+                    <li ><a href="grid.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-grid"></i> &nbsp;<span class="text"> Grid</span></a></li>
+                    <li class="show-subnav"><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect show-menu"><i class="mdi mdi-chart-areaspline"></i> &nbsp;<span class="text"> Charts</span><i class="mdi mdi-chevron-down"></i></a>
+                        <ul class="sub-menu ">
+                            <li ><a href="charts/chartjs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">ChartJS</span></a></li>
+                            <li ><a href="charts/c3chart.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">C3 Charts</span></a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="calendar.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-calendar"></i> &nbsp;<span class="text"> Calendar</span></a></li>
+                    <li ><a href="inbox.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-message"></i> &nbsp;<span class="text"> Inbox</span></a></li>
+                    <li ><a href="profile.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-account"></i> &nbsp;<span class="text"> Profile</span></a></li>
+                     <li ><a href="invoice.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-barcode"></i> &nbsp;<span class="text"> Invoice</span></a></li>
+                    <li ><a href="signup.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-account-multiple-plus"></i> &nbsp;<span class="text"> Signup</span></a></li>
+                    <li ><a href="login.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-logout"></i> &nbsp;<span class="text"> Login</span></a></li>
+                    <li ><a href="404.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-alert-octagon"></i> &nbsp;<span class="text"> 404 Page</span></a></li>
+                    <li ><a href="blank.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-content-paste"></i> &nbsp;<span class="text"> Blank Page</span></a></li>
+                    <li ><a href="docs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-texture"></i> &nbsp;<span class="text"> Documentation</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <main class="mdl-layout__content content-holder">
+        <div class=" page-content remodal-bg animsition">
+        <!-- Your content goes here -->
+        	
+	<div class="mdl-grid" style="margin-top:15px;">
+		<div class="mdl-cell shadow mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" style="background: white;">
+			<div class="panel-header">
+				Normal Form
+			</div>
+			<div class="panel-body forms">
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield textfield-demo">
+						<input class="mdl-textfield__input" type="text" id="sample1" />
+						<label class="mdl-textfield__label" for="sample1">Text...</label>
+					</div>
+				</form>
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield textfield-demo">
+						<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample2" />
+						<label class="mdl-textfield__label" for="sample2">Number...</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+				</form>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				 	Submit
+				</button>
+			</div>
+		</div>
+		<div class="mdl-cell shadow mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" style="background: white;">
+			<div class="panel-header">
+				Floating Form
+			</div>
+			<div class="panel-body forms">
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+						<input class="mdl-textfield__input" type="text" id="sample3" />
+						<label class="mdl-textfield__label" for="sample3">Text...</label>
+					</div>
+				</form>				
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+						<input class="mdl-textfield__input" type="text" pattern="-?[0-9]*(\.[0-9]+)?" id="sample4" />
+						<label class="mdl-textfield__label" for="sample4">Number...</label>
+						<span class="mdl-textfield__error">Input is not a number!</span>
+					</div>
+				</form>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+				 	Submit
+				</button>
+			</div>
+		</div>
+	</div>
+	<div class="mdl-grid" style="margin-top:10px;">
+		<div class="mdl-cell shadow mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" style="background: white;">
+			<div class="panel-header">
+				Toggles & switches
+			</div>
+			<div class="panel-body forms">
+			<h5 style="margin-bottom: 0; margin-top: 4px;">Checkbox</h5>
+			<hr>
+				<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-1">
+					<input type="checkbox" id="checkbox-1" class="mdl-checkbox__input" checked />
+					<span class="mdl-checkbox__label">Checkbox</span>
+				</label>
+				<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+					<input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" />
+					<span class="mdl-checkbox__label">Checkbox</span>
+				</label>
+			<h5 style="margin-top:30px;">Radio Button</h5>
+			<hr>
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-1">
+					<input type="radio" id="option-1" class="mdl-radio__button" name="options" value="1" checked />
+					<span class="mdl-radio__label">Option 1</span>
+				</label>
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+					<input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" />
+					<span class="mdl-radio__label">Option 2</span>
+				</label>
+			<h5 style="margin-top:30px;">Icon Toggle</h5>
+			<hr>
+				<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+					<input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input" checked />
+					<i class="mdl-icon-toggle__label mdi mdi-format-bold" style="font-size: 26px;"></i>
+				</label>
+				<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-2">
+					<input type="checkbox" id="icon-toggle-2" class="mdl-icon-toggle__input" />
+					<i class="mdl-icon-toggle__label mdi mdi-format-italic" style="font-size: 26px;"></i>
+				</label>
+			<h5 style="margin-top:30px;">Switch</h5>
+			<hr>
+			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-1">
+				<input type="checkbox" id="switch-1" class="mdl-switch__input" checked />
+				<span class="mdl-switch__label"></span>
+			</label>
+			<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+				<input type="checkbox" id="switch-2" class="mdl-switch__input" />
+				<span class="mdl-switch__label"></span>
+			</label>
+			</div>
+		</div>
+		<div class="mdl-cell shadow mdl-cell--6-col mdl-cell--12-col-phone mdl-cell--12-col-tablet" style="background: white;">
+			<div class="panel-header">
+				Others
+			</div>
+			<div class="panel-body forms">
+			<h5 style="margin-bottom: 24px; margin-top: 4px;">Textarea</h5>
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield textfield-demo">
+						<textarea class="mdl-textfield__input" type="text" rows= "7" id="sample5" ></textarea>
+						<label class="mdl-textfield__label" for="sample5">Text area here...</label>
+					</div>
+				</form>
+			<h5 style="margin-bottom: 24px;">Expanding Search</h5>
+				<form action="#">
+					<div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable textfield-demo">
+						<label class="mdl-button mdl-js-button mdl-button--icon" for="sample6">
+							<i class="mdi mdi-magnify"></i>
+						</label>
+						<div class="mdl-textfield__expandable-holder">
+							<input class="mdl-textfield__input" type="text" id="sample6" />
+							<label class="mdl-textfield__label" for="sample-expandable">Expandable Input</label>
+						</div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+
+        </div>
+    </main>
+</div>
+
+			
+		<script src="js/vendor.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+		</script> 
+		
+    
+
+    <script>
+
+        $(function () {
+
+            if ($(window).width()<840) {
+
+                if ($('body').hasClass('extended')==1) {
+                    $('body').removeClass('extended')
+                }     
+            }
+            
+            var sessionLayout = "";
+
+            if (!sessionLayout && $(window).width()>1600) {
+
+                $('.c-hamburger').addClass('is-active');
+                $('body').addClass('extended');        
+                $('.scrollbar').perfectScrollbar(); 
+
+            };
+
+            $( ".c-hamburger" ).click(function() {
+
+                $( this ).toggleClass('is-active');
+                $('body').toggleClass('extended');
+
+                var hasClass = $('body').hasClass('extended');
+
+                $.get('/api/change-layout?layout='+ (hasClass ? 'extended': 'collapsed'));
+
+            });
+
+            if ($('body').hasClass('extended')==1) {
+               $( ".c-hamburger" ).addClass('is-active') ;
+            };
+            $( ".show-menu" ).click(function() {
+                $( this ).parent().find('.sub-menu').toggleClass('visible');
+            });
+
+            $(".animsition").animsition({
+
+                inClass               :   'zoom-in-sm',
+                outClass              :   'zoom-out-sm',
+                inDuration            :    350,
+                outDuration           :    500,
+                linkElement           :   '.animsition-link',
+                // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+                loading               :    true,
+                loadingParentElement  :   'body', //animsition wrapper element
+                loadingClass          :   'animsition-loading',
+                unSupportCss          : [ 'animation-duration',
+                '-webkit-animation-duration',
+                '-o-animation-duration'
+                ],
+                //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+                //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+
+                overlay               :   false,
+                overlayClass          :   'animsition-overlay-slide',
+                overlayParentElement  :   'body'
+            });
+            
+
+            $(window).resize(function  () {
+              
+                if ($(window).width()>1600) {
+                    $('.c-hamburger').addClass('is-active');
+                    $('body').addClass('extended');
+                    $('.scrollbar').perfectScrollbar();      
+
+                };
+                if ($(window).width()<1200) {
+                    $('.c-hamburger').removeClass('is-active');
+                    $('body').removeClass('extended');
+                };  
+                if ($('body').hasClass('extended')==1) {
+                    $('#scroll').addClass('ps-container');
+                    $('.scrollbar').perfectScrollbar();      
+                    $('.scrollbar').perfectScrollbar('update');
+                }
+                else if ($('body').hasClass('extended')==0) {
+                    $('#scroll').removeClass('ps-container');
+                }               
+            });      
+
+            $( ".c-hamburger" ).click(function() {
+
+            if ($('body').hasClass('extended')==1) {
+                $('#scroll').addClass('ps-container');
+                 $('.scrollbar').perfectScrollbar();      
+                $('.scrollbar').perfectScrollbar('update');
+            }
+            else if ($('body').hasClass('extended')==0) {
+                    $('#scroll').removeClass('ps-container');
+                }
+            });
+            $('.theme-picker').click(function() {
+                changeTheme($(this).attr('id'));
+            });
+
+            function changeTheme(theme) {
+
+                $('<link>')
+                .appendTo('head')
+                .attr({type : 'text/css', rel : 'stylesheet'})
+                .attr('href', '/css/app-'+theme+'.css');
+
+                $.get('api/change-theme?theme='+theme);
+            }
+
+
+        });
+    </script>
+
+	</body>
+
+<!-- Mirrored from material-admin.strapui.com/form by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Sep 2015 13:24:22 GMT -->
+</html>

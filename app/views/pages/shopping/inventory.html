@@ -1,0 +1,95 @@
+<div class="layout-row" layout-sm="column" layout-xs="column">
+	<div class="mdl-cell shadow grid-margin" style="background: white;" flex="100" flex-sm="100">
+		<div class="panel-header">
+      Item List
+      <span class="cog">
+        <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+          <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+        </md-button>
+      </span>
+		</div>
+      <div class="panel-body">
+        <div class="table-responsive">
+
+          <div class="dataTables_wrapper form-inline dt-bootstrap no-footer">
+
+            <div class="row">
+              <div class="col-md-5">
+                <button type="button" ng-click="openForm()" class="btn btn-default">New</button>
+              </div>
+            </div>
+
+            <div class="row">
+
+              <div class="col-sm-6">
+                <div id="datatable_filter" class="dataTables_filter">
+                <label>Search:
+                  <input type="search" class="form-control input-sm" placeholder="Search" aria-controls="datatable">
+                </label>
+                </div>
+              </div>
+            </div>
+            <div class="row" style="margin-left: 0; margin-right: 0" ng-if="false" >
+              <div ui-grid="gridOptions2" ui-grid-pagination class="grid"></div>
+            </div>
+
+            <div class="row" style="margin-left: 0; margin-right: 0">
+              <tr>
+              					<td></td>
+              					<td>itemId</td>
+              					<td>Name</td>
+              					<td>Description</td>
+              					<td>price</td>
+              					<td>Discount Price</td>
+              					<td>SKU</td>
+              					<td>itemTypeId</td>
+              					<td>Quantity</td>
+              					<td></td>
+              				</tr>
+
+                      <td id="<%= "shopping-item-id-"+shoppingItemId %>"> <%= shoppingItem.getItemId() %></td>
+                      					<td id="<%= "shopping-item-title-"+shoppingItemId %>"> <%= shoppingItem.getTitle() %></td>
+                      					<td id="<%= "shopping-item-description-"+shoppingItemId %>"><%= shoppingItem.getDescription() %></td>
+                      					<td id="<%= "shopping-item-price-"+shoppingItemId %>"><%= shoppingItem.getPrice()%></td>
+                      					<td id="<%= "shopping-item-discount-price-"+shoppingItemId %>"><%= shoppingItem.getDiscountPrice() %></td>
+                      					<td id="<%= "shopping-item-sku-"+shoppingItemId %>"><%= shoppingItem.getSku() %></td>
+                      					<td id="<%= "shopping-item-weight-"+shoppingItemId %>"><%= shoppingItem.getItemTypeId() %></td>
+                      					<td id="<%= "shopping-item-quantity-"+shoppingItemId %>"><%= ShoppingItemLocalServiceUtil.availableQuantity(shoppingItemId) %></td>
+
+              <table ng-table="tableParams" class="table" >
+                <tr ng-repeat="item in $data">
+                  <td title="'itemId'" sortable="'code'">{{item.itemId}}</td>
+                  <td title="'Name'"  sortable="'name'">{{item.title}}</td>
+                  <td title="'Description'" sortable="'description'">{{item.description}}</td>
+                  <td title="'Price'"  sortable="'limitCategories'">{{item.price}}</td>
+                  <td title="'Discount Price'" sortable="'limitSkus'">{{item.discountPrice}}</td>
+                  <td title="'SKU'"  sortable="'minOrder'">{{item.sku}}</td>
+                  <td title="'itemTypeId'"  sortable="'discountType'">{{item.discountType}}</td>
+                  <td title="''" sortable="''">{{item.discount}}</td>
+
+                  <td class="center">
+                    <a class="btn btn-default btn-xs" href="javascript:;" data-original-title="Open" data-toggle="tooltip" ng-click="openForm(item)">
+                      <i class="fa fa-file"></i>
+                    </a>
+                    <a class="btn btn-primary btn-xs" href="javascript:;" data-original-title="Edit" data-toggle="tooltip" ng-click="openForm(item)">
+                      <i class="fa fa-pencil"></i>
+                    </a>
+                    <a class="btn btn-danger btn-xs" href="javascript:;" data-original-title="Remove" data-toggle="tooltip" ng-click="deleteItem(item)">
+                      <i class="fa fa-times"></i>
+                    </a>
+
+                  </td>
+                </tr>
+              </table>
+
+            </div>
+
+
+          </div>
+
+
+        </div>
+      </div
+  </div>
+
+</div>

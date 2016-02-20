@@ -1,0 +1,159 @@
+
+
+
+<md-dialog aria-label="Coupon" class="dialog-lg">
+		<form class="">
+		  	<md-toolbar>
+		    	<div class="md-toolbar-tools">
+		     		 <h2>Coupon</h2>
+		     		 <span flex></span>
+		    	</div>
+		    	<i class="mdi mdi-close" ng-click="cancel()"></i>
+		  	</md-toolbar>
+			<md-dialog-content>
+				<md-content layout-padding> 
+  				<form action="">
+  					<md-input-container>
+                <input type="text" ng-model="coupon.code" placeholder="Code" >
+            </md-input-container>
+
+  					<md-input-container>
+                <input ng-model="coupon.name" type="text" placeholder="Name">
+            </md-input-container>
+
+            <md-input-container style="padding-top:20px;">
+                <textarea ng-model="coupon.description" placeholder="Description" rows="6"></textarea>
+            </md-input-container>
+
+
+            <md-select placeholder="Discount Type" ng-model="coupon.discountType" style="min-width: 200px;">
+              <md-option ng-value="type" ng-repeat="type in settings.DISCOUNT_TYPES">{{type}}</md-option>
+            </md-select>
+
+            <div>
+            	<md-datepicker ng-model="startDateValue" md-placeholder="Start Date"></md-datepicker>
+
+            	<md-datepicker ng-model="endDateValue"  md-placeholder="End Date"></md-datepicker>
+						</div>
+
+
+						<md-input-container>
+                <input ng-model="coupon.minOrder" type="number" placeholder="Minimun Order">
+            </md-input-container>
+
+						<div>
+							<md-checkbox ng-model="coupon.active" aria-label="Active?">
+							  Active ?
+							</md-checkbox>
+						</div>
+
+          </form>
+
+
+
+  				<md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
+  				<md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+
+				</md-content>
+	  	</md-dialog-content>
+  	</form>
+</md-dialog>
+<!-- <div class="block-flat">
+  <div class=" panel-header">
+    <h3>Input Groups</h3>
+  </div>
+  <div class="content">
+    <form role="form" class="form-horizontal">
+
+      <div class="form-group">
+        <label for="code" class="col-sm-2 control-label">Code</label>
+        <div class="col-sm-10">
+          <input id="code" type="text" ng-model="coupon.code" placeholder="Code" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="name" class="col-sm-2 control-label">Name</label>
+        <div class="col-sm-10">
+          <input id="name" type="text" ng-model="coupon.name" placeholder="Name" class="form-control">
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Description</label>
+        <div class="col-sm-10">
+          <textarea class="form-control" ng-model="coupon.description" placeholder="Description"></textarea>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Categories</label>
+        <div class="col-sm-10">
+
+          <select ui-select2="select2Options" multiple ng-model="couponCategories" style="width: 100%;">
+            <option ng-repeat="cat in shoppingCategories" value="{{cat.categoryId}}">{{cat.name}}</option>
+          </select>
+
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Discount type</label>
+        <div class="col-sm-10">
+          <select class="form-control" ng-model="coupon.discountType">
+            <option>Select...</option>
+            <option ng-repeat="type in settings.DISCOUNT_TYPES" value="{{type}}">{{type}}</option>
+
+          </select>
+        </div>
+      </div>
+
+
+      <div class="form-group" ng-if="coupon.discountType != 'free_shipping'">
+        <label for="discount" class="col-sm-2 control-label">Discount</label>
+        <div class="col-sm-10">
+          <div class="input-group">
+            <span class="input-group-addon">{{ coupon.discountType == 'value'?'£':'%'}}</span><input id="discount" type="text" ng-model="coupon.discount" placeholder="Discount" class="form-control">
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Start Date</label>
+        <div class="col-sm-10">
+          <div data-min-view="2"  data-date-format="yyyy-mm-dd" class="input-group date datetime col-md-5 col-xs-7">
+            <input size="16" show-button-bar="false" type="text" value="" readonly="" class="form-control" uib-datepicker-popup ng-model="startDateValue" is-open="startDate.opened" datepicker-options="dateOptions" close-text="Close">
+            <span ng-click="openStartDate()" class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
+          </div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">End Date</label>
+        <div class="col-sm-10">
+          <div data-min-view="2" data-date-format="yyyy-mm-dd" class="input-group date datetime col-md-5 col-xs-7">
+            <input size="16" show-button-bar="false" type="text" value="" readonly="" class="form-control" uib-datepicker-popup ng-model="endDateValue" is-open="endDate.opened" datepicker-options="dateOptions" close-text="Close">
+            <span ng-click="openEndDate()" class="input-group-addon btn btn-primary"><span class="glyphicon glyphicon-th"></span></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label class="col-sm-2 control-label">Active</label>
+        <div class="col-sm-10">
+          <input type="checkbox" ng-model="coupon.active">
+        </div>
+      </div>
+
+
+
+      <div class="form-group">
+        <div class="col-sm-offset-2 col-sm-10">
+          <button type="submit" class="btn btn-primary" ng-click="save()">Save</button>
+          <button class="btn btn-default" ng-click="cancel()">Cancel</button>
+        </div>
+      </div>
+    </form>
+  </div>
+</div> -->

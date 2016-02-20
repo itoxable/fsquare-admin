@@ -1,0 +1,16 @@
+$icon-font-path: "/fonts/";
+
+@import './bower_components/bootstrap-sass/assets/stylesheets/bootstrap';
+
+.action-buttons{
+  margin-bottom: 10px;
+}
+.table{
+  > thead{
+    > tr{
+      > th{
+        text-align: left;
+      }
+    }
+  }
+}

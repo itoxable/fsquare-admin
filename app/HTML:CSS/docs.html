@@ -1,0 +1,1275 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from material-admin.strapui.com/docs by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Sep 2015 13:24:22 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=UTF-8" /><!-- /Added by HTTrack -->
+<head>
+	<title>Material Laravel Dashboard | 	Form
+</title>
+
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta content="" name="description"/>
+	<meta content="" name="author"/>
+	
+	<link rel="stylesheet" href="css/vendor.css" />
+	<link rel="stylesheet" href="css/app-blue.css" />
+	<link rel="shortcut icon" href="favicon.ico">
+
+</head>
+	<body class="small-sidebar ">
+		
+<!-- Always shows a header, even in smaller screens. -->
+<div class="mdl-layout mdl-js-layout mdl-layout--fixed-header">
+    <header class="mdl-layout__header navbar shadow">
+        <div class="mdl-layout__header-row">
+            <!-- Hamburger -->
+            <button class="c-hamburger c-hamburger--htla">
+                <span>toggle menu</span>
+            </button>
+            <div class="responsive-logo">
+                Material <br><span class="smaller">Dashboard</span>
+            </div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <!-- Left aligned menu below button -->
+                <button id="demo-menu-lower-left" class="mdl-button mdl-js-button mdl-button--icon">
+                    <i class="mdi mdi-brightness-1 text-primary"></i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-left mdl-js-menu mdl-js-ripple-effect zero-padding"
+                    for="demo-menu-lower-left">
+                    <table class="color-picker">
+                        <tr>
+                            <td><a href="#" id="blue" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                            <td><a href="#" id="red" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" id="grey" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                            <td><a href="#" id="green" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                        </tr>
+                        <tr>
+                            <td><a href="#" id="purple" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                            <td><a href="#" id="cyan" class="theme-picker"><i class="mdi mdi-brightness-1"></i></a></td>
+                        </tr>
+                    </table>               
+                </ul>
+
+            </nav>
+            <!-- Add spacer, to align navigation to the right -->
+            <div class="mdl-layout-spacer"></div>
+            <!-- Navigation. We hide it in small screens. -->
+            <a class="mdl-button mdl-js-button primary mdl-js-ripple-effect mdl-button--raised mdl-layout--large-screen-only" style="margin-right: 10px; margin-bottom: 5px;" href="http://www.strapui.com/themes/material-dashboard-admin-laravel/">
+              Buy Now
+            </a>
+            <div class="mdl-textfield mdl-js-textfield mdl-textfield--expandable mdl-textfield--floating-label mdl-textfield--align-right mdl-layout--large-screen-only">
+                <label class="mdl-button mdl-js-button mdl-button--icon"
+                for="fixed-header-drawer-exp">
+                <i class="mdi mdi-magnify"></i>
+                </label>
+                <div class="mdl-textfield__expandable-holder">
+                    <input class="mdl-textfield__input" type="text" name="sample"
+                    id="fixed-header-drawer-exp" />
+                </div>
+            </div>
+            <nav class="mdl-navigation mdl-layout--large-screen-only">
+                <button id="demo-menu-lower-right2" class="mdl-button mdl-js-button nav-button">
+                    <div class="mdl-badge" data-badge="3"><i class="mdi mdi-email"></i></div>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right2">
+                    <li class="mdl-menu__item"><a href="inbox.html">Mail from Elsa</a></li>
+                    <li class="mdl-menu__item"><a href="inbox.html">Inbox</a></li>
+                    <li class="mdl-menu__item"><a href="inbox.html">Tickets confirmed</a></li>
+                    <li class="mdl-menu__item"><a href="inbox.html">Check here</a></li>
+                </ul>
+                <button id="demo-menu-lower-right3" class="mdl-button mdl-js-button nav-button">
+                   <div class="mdl-badge" data-badge="7"><i class="mdi mdi-bell"></i></div>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right3">
+                    <li class="mdl-menu__item">2 new friends</li>
+                    <li class="mdl-menu__item">4 new messages</li>
+                    <li class="mdl-menu__item">Friend request accepted</li>
+                    <li class="mdl-menu__item">No new notifs.</li>                   
+                </ul>
+                <button id="demo-menu-lower-right" class="mdl-button mdl-js-button nav-button">
+                    <i class="mdi mdi-dots-vertical"></i>
+                </button>
+                <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="demo-menu-lower-right">
+                    <li class="mdl-menu__item">Some Action</li>
+                    <li class="mdl-menu__item"><a href="login.html">Logout</a></li>
+                    <li class="mdl-menu__item">Disabled Action</li>
+                    <li class="mdl-menu__item">Yet Another Action</li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- Side bar here -->
+    <aside id="" class="sidebar">
+        <div class="top-logo">
+            M
+        </div>
+        <div class="top-logo-extended">
+            Material <br/> <span class="smaller">dashboard</span>
+        </div>
+        <div class="scrollbar" id="scroll" style="height: 100%;">
+            <div class="user-info">
+                <div class="opacity">
+                    <a href="profile.html"><img src="images/profile.jpg" alt="" class="sidebar-profile"></a>
+                    <div class="info">
+                        Sankhadeep Roy <br /> <span class="smaller">Striker at Liverpool FC</span>
+                    <div class="pen">
+                        <a href="#" class=""><i class="mdi mdi-border-color"></i></a>
+                    </div>
+                    </div>
+                </div>
+            </div>
+            <div class="dashboard-menu">
+                <ul class="menu-list">
+                    <li ><a href="index.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-home"></i> &nbsp;<span class="text"> Home</span></a></li>
+                    <li class="show-subnav" ><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect show-menu"><i class="mdi mdi-arrange-bring-to-front"></i> &nbsp;<span class="text"> UI-Elements</span><i class="mdi mdi-chevron-down"></i></a>
+                        <ul class="sub-menu ">
+                            <li ><a href="ui-elements/button.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">Buttons</span></a></li>
+                            <li ><a href="ui-elements/card.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">Cards</span></a></li>
+                            <li ><a href="ui-elements/components.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">Components</span></a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="form.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-receipt"></i> &nbsp;<span class="text"> Form</span></a></li>
+                    <li ><a href="grid.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-grid"></i> &nbsp;<span class="text"> Grid</span></a></li>
+                    <li class="show-subnav"><a href="#" class="mdl-button mdl-js-button mdl-js-ripple-effect show-menu"><i class="mdi mdi-chart-areaspline"></i> &nbsp;<span class="text"> Charts</span><i class="mdi mdi-chevron-down"></i></a>
+                        <ul class="sub-menu ">
+                            <li ><a href="charts/chartjs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">ChartJS</span></a></li>
+                            <li ><a href="charts/c3chart.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><span class="text">C3 Charts</span></a></li>
+                        </ul>
+                    </li>
+                    <li ><a href="calendar.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-calendar"></i> &nbsp;<span class="text"> Calendar</span></a></li>
+                    <li ><a href="inbox.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-message"></i> &nbsp;<span class="text"> Inbox</span></a></li>
+                    <li ><a href="profile.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-account"></i> &nbsp;<span class="text"> Profile</span></a></li>
+                     <li ><a href="invoice.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-barcode"></i> &nbsp;<span class="text"> Invoice</span></a></li>
+                    <li ><a href="signup.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-account-multiple-plus"></i> &nbsp;<span class="text"> Signup</span></a></li>
+                    <li ><a href="login.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-logout"></i> &nbsp;<span class="text"> Login</span></a></li>
+                    <li ><a href="404.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-alert-octagon"></i> &nbsp;<span class="text"> 404 Page</span></a></li>
+                    <li ><a href="blank.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-content-paste"></i> &nbsp;<span class="text"> Blank Page</span></a></li>
+                    <li class=active><a href="docs.html" class="mdl-button mdl-js-button mdl-js-ripple-effect"><i class="mdi mdi-texture"></i> &nbsp;<span class="text"> Documentation</span></a></li>
+                </ul>
+            </div>
+        </div>
+    </aside>
+    <main class="mdl-layout__content content-holder">
+        <div class=" page-content remodal-bg animsition">
+        <!-- Your content goes here -->
+        	
+<div id="installation" class="shadow panel">
+       			<h4>Installation</h4>
+       			To use the Material Dashboard Theme, you need to make sure you have <code>bower</code>, <code>npm</code> and <code>gulp</code> globally installed. Now navigate to your app directory ($ cd app/) and run the following terminal commands :
+       			<ul>
+       				<li> <code>composer install</code> </li>
+       				<li> <code>php artisan key:generate</code> and paste the generated key in <code>config/app.php</code> replacing <code>'key' => env('APP_KEY', 'SomeRandomString')</code>"SomeRandomString"</li>
+       				<li> <code>npm install</code> </li>
+       				<li> <code>bower install</code> </li>
+       				<li> <code>gulp watch</code> </li>
+       			</ul>
+			</div>
+			<div id="features" class="shadow panel">
+       			<h4>Features</h4>
+       			Material Admin is a lightweight and feature rich admin template which is clean and easy to use. Current release comes with the following features:
+       			<ul>
+       				<li> Responsive desing based on Material Design Lite</li>
+       				<li> Custom elemenrs and plugins including
+						<ul>
+							<li>User profile</li>
+							<li>Inbox</li>
+							<li>Lightbox Gallery</li>
+							<li>Customizable in different colors and styles</li>
+							<li>Login, Register and 404 page</li>
+						</ul>
+       				</li>
+       				<li> Material Design Lite and third party plugins and elemnts including
+						<ul>
+							<li>Tables</li>
+							<li>Buttons</li>
+							<li>Forms with validation</li>
+							<li>Progressbars and Spinners</li>
+							<li>Cards</li>
+							<li>Tabs</li>
+							<li>Sliders</li>
+							<li>Badges</li>
+							<li>Paper Collapse</li>
+						</ul>
+       				</li>       				
+       			</ul>
+			</div>
+			<div id="widgets" class="panel shadow">
+				<h4>Widgets</h4>
+				The following widgets/plugins have been used in Material Dashboard theme:
+				<h5>Buttons</h5>
+				<button class="mdl-button mdl-js-button mdl-button--colored" style="margin-right: 10px; margin-bottom: 5px;">
+					Button
+				</button>
+				<button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent" style="margin-right: 10px; margin-bottom: 5px;">
+				 	Accent
+				</button>
+				<button class="mdl-button mdl-js-button primary mdl-js-ripple-effect mdl-button--raised" style="margin-right: 10px; margin-bottom: 5px;">
+				 	Primary
+				</button>
+				<button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect" style="margin-right: 10px;">
+					<i class="mdi mdi-bike"></i>
+				</button>
+				<div class="code-block">
+					<code><pre>&lt;button class="mdl-button mdl-js-button mdl-button--colored"&gt;
+	Button
+&lt;/button&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--raised mdl-button--accent"&gt;
+	Accent
+&lt;/button&gt;
+&lt;button class="mdl-button mdl-js-button primary mdl-js-ripple-effect mdl-button--raised"&gt;
+	Primary
+&lt;/button&gt;
+&lt;button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect"&gt;
+	&lt;i class="mdi mdi-bike"&gt;&lt;/i&gt;
+&lt;/button&gt;</pre></code>
+				</div>
+				<h5>Cards</h5>
+				<div class="mdl-card mdl-shadow--2dp demo-card-wide mdl-cell mdl-cell--6-col material">
+					<div class="mdl-card__title">
+						<h2 class="mdl-card__title-text">Welcome</h2>
+					</div>
+					<div class="mdl-card__supporting-text">
+						Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+						Mauris sagittis pellentesque lacus eleifend lacinia...
+					</div>
+					<div class="mdl-card__actions mdl-card--border">
+						<a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
+							Get Started
+						</a>
+					</div>
+					<div class="mdl-card__menu">
+						<button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
+						<i class="mdi mdi-share-variant"></i>
+						</button>
+					</div>
+				</div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div class="mdl-card mdl-shadow--2dp demo-card-wide mdl-cell mdl-cell--6-col material"&gt;
+	&lt;div class="mdl-card__title"&gt;
+		&lt;h2 class="mdl-card__title-text"&gt;Welcome&lt;/h2&gt;
+	&lt;/div&gt;
+	&lt;div class="mdl-card__supporting-text"&gt;
+		Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+		Mauris sagittis pellentesque lacus eleifend lacinia...
+	&lt;/div&gt;
+	&lt;div class="mdl-card__actions mdl-card--border"&gt;
+		&lt;a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect"&gt;
+			Get Started
+		&lt;/a&gt;
+	&lt;/div&gt;
+	&lt;div class="mdl-card__menu"&gt;
+		&lt;button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect"&gt;
+		&lt;i class="mdi mdi-share-variant"&gt;&lt;/i&gt;
+		&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Tabs</h5>
+				<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect">
+					<div class="mdl-tabs__tab-bar">
+						<a href="#starks-panel" class="mdl-tabs__tab is-active">Starks</a>
+						<a href="#lannisters-panel" class="mdl-tabs__tab">Lannisters</a>
+						<a href="#targaryens-panel" class="mdl-tabs__tab">Targaryens</a>
+					</div>
+
+					<div class="mdl-tabs__panel is-active" id="starks-panel">
+						<ul>
+							<li>Eddard</li>
+							<li>Catelyn</li>
+							<li>Robb</li>
+							<li>Sansa</li>
+							<li>Brandon</li>
+							<li>Arya</li>
+							<li>Rickon</li>
+						</ul>
+					</div>
+					<div class="mdl-tabs__panel" id="lannisters-panel">
+						<ul>
+							<li>Tywin</li>
+							<li>Cersei</li>
+							<li>Jamie</li>
+							<li>Tyrion</li>
+						</ul>
+					</div>
+					<div class="mdl-tabs__panel" id="targaryens-panel">
+						<ul>
+							<li>Viserys</li>
+							<li>Daenerys</li>
+						</ul>
+					</div>
+				</div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect"&gt;
+	&lt;div class="mdl-tabs__tab-bar"&gt;
+		&lt;a href="#starks-panel" class="mdl-tabs__tab is-active"&gt;Starks&lt;/a&gt;
+		&lt;a href="#lannisters-panel" class="mdl-tabs__tab"&gt;Lannisters&lt;/a&gt;
+		&lt;a href="#targaryens-panel" class="mdl-tabs__tab"&gt;Targaryens&lt;/a&gt;
+	&lt;/div&gt;
+
+	&lt;div class="mdl-tabs__panel is-active" id="starks-panel"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Eddard&lt;/li&gt;
+			&lt;li&gt;Catelyn&lt;/li&gt;
+			&lt;li&gt;Robb&lt;/li&gt;
+			&lt;li&gt;Sansa&lt;/li&gt;
+			&lt;li&gt;Brandon&lt;/li&gt;
+			&lt;li&gt;Arya&lt;/li&gt;
+			&lt;li&gt;Rickon&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;div class="mdl-tabs__panel" id="lannisters-panel"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Tywin&lt;/li&gt;
+			&lt;li&gt;Cersei&lt;/li&gt;
+			&lt;li&gt;Jamie&lt;/li&gt;
+			&lt;li&gt;Tyrion&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+	&lt;div class="mdl-tabs__panel" id="targaryens-panel"&gt;
+		&lt;ul&gt;
+			&lt;li&gt;Viserys&lt;/li&gt;
+			&lt;li&gt;Daenerys&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Loading Bar</h5>
+				<div class="bar" style="margin: 15px;">	
+					<div id="p1" class="mdl-progress mdl-js-progress progress-demo"></div>
+				</div>
+				<div class="bar" style="margin: 15px;">
+					<div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate progress-demo"></div>
+				</div>
+				<div class="bar" style="margin: 15px;">
+					<div id="p3" class="mdl-progress mdl-js-progress progress-demo"></div>
+				</div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div id="p1" class="mdl-progress mdl-js-progress progress-demo"&gt;&lt;/div&gt;
+&lt;div id="p2" class="mdl-progress mdl-js-progress mdl-progress__indeterminate progress-demo"&gt;&lt;/div&gt;
+&lt;div id="p3" class="mdl-progress mdl-js-progress progress-demo"&gt;&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Sliders</h5>
+				<input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0"/>			
+				<input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="25" tabindex="0"/>	
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="0" tabindex="0"/&gt;			
+&lt;input class="mdl-slider mdl-js-slider" type="range" min="0" max="100" value="25" tabindex="0"/&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Spinners</h5>
+				<div class="mdl-spinner mdl-js-spinner is-active" style="margin-right: 20px;"></div>
+				<div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"></div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div class="mdl-spinner mdl-js-spinner is-active"&gt;&lt;/div&gt;
+&lt;div class="mdl-spinner mdl-spinner--single-color mdl-js-spinner is-active"&gt;&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Badges</h5>
+				<span style="margin-right: 10px;">			
+				<span class="material-icons mdl-badge" data-badge="1">Messages</span>
+				</span>
+				<span style="margin-right: 10px;">			
+				<span class="material-icons mdl-badge" data-badge="4"><button class="mdl-button mdl-js-button mdl-js-ripple-effect">Button</button></span>
+				</span>
+				<span style="margin-right: 10px;">			
+				<span class="material-icons mdl-badge" data-badge="♥"><i class="mdi mdi-account" style="font-size: 25px; line-height: 1.2;"></i></span>
+				</span>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;span class="material-icons mdl-badge" data-badge="1"&gt;Messages&lt;/span&gt;
+&lt;span class="material-icons mdl-badge" data-badge="4"&gt;
+	&lt;button class="mdl-button mdl-js-button mdl-js-ripple-effect"&gt;Button&lt;/button&gt;
+&lt;/span&gt;
+&lt;span class="material-icons mdl-badge" data-badge="♥"&gt;&lt;i class="mdi mdi-account"&gt;&lt;/i&gt;&lt;/span&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Tooltips</h5>
+				<span style="margin-right: 25px;">	
+					<span id="tt1"><i class="mdi mdi-plus"></i></span>
+					<span class="mdl-tooltip" for="tt1">
+					Follow
+					</span>
+				</span>
+				<span style="margin-right: 25px;">	
+					<span id="tt2"><i class="mdi mdi-printer"></i></span>
+					<span class="mdl-tooltip mdl-tooltip--large" for="tt2">
+					Print
+					</span>
+				</span>	
+				<span style="margin-right: 25px;">	
+					<span id="tt3"><i class="mdi mdi-cloud-upload"></i></span>
+					<span class="mdl-tooltip" for="tt3">
+					Upload <strong>file.zip</strong>
+					</span>
+				</span>	
+				<span style="margin-right: 25px;">	
+					<span id="tt4"><i class="mdi mdi-share-variant"></i></span>
+					<span class="mdl-tooltip" for="tt4">
+					Share your content<br>via social media
+					</span>
+				</span>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;span id="tt1"&gt;&lt;i class="mdi mdi-plus"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class="mdl-tooltip" for="tt1"&gt;
+	Follow
+&lt;/span&gt;
+&lt;span id="tt2"&gt;&lt;i class="mdi mdi-printer"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class="mdl-tooltip mdl-tooltip--large" for="tt2"&gt;
+	Print
+&lt;/span&gt;
+&lt;span id="tt3"&gt;&lt;i class="mdi mdi-cloud-upload"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class="mdl-tooltip" for="tt3"&gt;
+	Upload &lt;strong&gt;file.zip&lt;/strong&gt;
+&lt;/span&gt;
+&lt;span id="tt4"&gt;&lt;i class="mdi mdi-share-variant"&gt;&lt;/i&gt;&lt;/span&gt;
+&lt;span class="mdl-tooltip" for="tt4"&gt;
+	Share your content&lt;br&gt;via social media
+&lt;/span&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Footer</h5>
+				<footer class="mdl-mega-footer">
+					<div class="mdl-mega-footer__middle-section">
+
+						<div class="mdl-mega-footer__drop-down-section">
+							<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+							<h1 class="mdl-mega-footer__heading">Features</h1>
+							<ul class="mdl-mega-footer__link-list">
+								<li><a href="#">About</a></li>
+								<li><a href="#">Terms</a></li>
+								<li><a href="#">Partners</a></li>
+								<li><a href="#">Updates</a></li>
+							</ul>
+						</div>
+
+						<div class="mdl-mega-footer__drop-down-section">
+							<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+							<h1 class="mdl-mega-footer__heading">Details</h1>
+							<ul class="mdl-mega-footer__link-list">
+								<li><a href="#">Specs</a></li>
+								<li><a href="#">Tools</a></li>
+								<li><a href="#">Resources</a></li>
+							</ul>
+						</div>
+
+						<div class="mdl-mega-footer__drop-down-section">
+							<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+							<h1 class="mdl-mega-footer__heading">Technology</h1>
+							<ul class="mdl-mega-footer__link-list">
+								<li><a href="#">How it works</a></li>
+								<li><a href="#">Patterns</a></li>
+								<li><a href="#">Usage</a></li>
+								<li><a href="#">Products</a></li>
+								<li><a href="#">Contracts</a></li>
+							</ul>
+						</div>
+
+						<div class="mdl-mega-footer__drop-down-section">
+							<input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked>
+							<h1 class="mdl-mega-footer__heading">FAQ</h1>
+							<ul class="mdl-mega-footer__link-list">
+								<li><a href="#">Questions</a></li>
+								<li><a href="#">Answers</a></li>
+								<li><a href="#">Contact us</a></li>
+							</ul>
+						</div>
+
+					</div>
+
+					<div class="mdl-mega-footer__bottom-section">
+						<div class="mdl-logo">Title</div>
+						<ul class="mdl-mega-footer__link-list">
+							<li><a href="#">Help</a></li>
+							<li><a href="#">Privacy & Terms</a></li>
+						</ul>
+					</div>
+				</footer>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;footer class="mdl-mega-footer"&gt;
+	&lt;div class="mdl-mega-footer__middle-section"&gt;
+
+		&lt;div class="mdl-mega-footer__drop-down-section"&gt;
+			&lt;input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked&gt;
+			&lt;h1 class="mdl-mega-footer__heading"&gt;Features&lt;/h1&gt;
+			&lt;ul class="mdl-mega-footer__link-list"&gt;
+				&lt;li&gt;&lt;a href="#"&gt;About&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Terms&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Partners&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Updates&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+
+		&lt;div class="mdl-mega-footer__drop-down-section"&gt;
+			&lt;input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked&gt;
+			&lt;h1 class="mdl-mega-footer__heading"&gt;Details&lt;/h1&gt;
+			&lt;ul class="mdl-mega-footer__link-list"&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Specs&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Tools&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Resources&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+
+		&lt;div class="mdl-mega-footer__drop-down-section"&gt;
+			&lt;input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked&gt;
+			&lt;h1 class="mdl-mega-footer__heading"&gt;Technology&lt;/h1&gt;
+			&lt;ul class="mdl-mega-footer__link-list"&gt;
+				&lt;li&gt;&lt;a href="#"&gt;How it works&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Patterns&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Usage&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Products&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Contracts&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+
+		&lt;div class="mdl-mega-footer__drop-down-section"&gt;
+			&lt;input class="mdl-mega-footer__heading-checkbox" type="checkbox" checked&gt;
+			&lt;h1 class="mdl-mega-footer__heading"&gt;FAQ&lt;/h1&gt;
+			&lt;ul class="mdl-mega-footer__link-list"&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Questions&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Answers&lt;/a&gt;&lt;/li&gt;
+				&lt;li&gt;&lt;a href="#"&gt;Contact us&lt;/a&gt;&lt;/li&gt;
+			&lt;/ul&gt;
+		&lt;/div&gt;
+
+	&lt;/div&gt;
+
+	&lt;div class="mdl-mega-footer__bottom-section"&gt;
+		&lt;div class="mdl-logo"&gt;Title&lt;/div&gt;
+		&lt;ul class="mdl-mega-footer__link-list"&gt;
+			&lt;li&gt;&lt;a href="#"&gt;Help&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;Privacy & Terms&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;	
+						</pre>
+					</code>
+				</div>
+				<h5>Mini Footer</h5>
+				<footer class="mdl-mini-footer">
+					<div class="mdl-mini-footer__left-section">
+						<div class="mdl-logo">Title</div>
+						<ul class="mdl-mini-footer__link-list">
+							<li><a href="#">Help</a></li>
+							<li><a href="#">Privacy & Terms</a></li>
+						</ul>
+					</div>
+				</footer>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;footer class="mdl-mini-footer"&gt;
+	&lt;div class="mdl-mini-footer__left-section"&gt;
+		&lt;div class="mdl-logo"&gt;Title&lt;/div&gt;
+		&lt;ul class="mdl-mini-footer__link-list"&gt;
+			&lt;li&gt;&lt;a href="#"&gt;Help&lt;/a&gt;&lt;/li&gt;
+			&lt;li&gt;&lt;a href="#"&gt;Privacy & Terms&lt;/a&gt;&lt;/li&gt;
+		&lt;/ul&gt;
+	&lt;/div&gt;
+&lt;/footer&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Table</h5>
+				<table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp shadow">
+					<thead>
+						<tr>
+							<th class="mdl-data-table__cell--non-numeric">Material</th>
+							<th>Quantity</th>
+							<th>Unit price</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">Acrylic (Transparent)</td>
+							<td>25</td>
+							<td>$2.90</td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">Plywood (Birch)</td>
+							<td>50</td>
+							<td>$1.25</td>
+						</tr>
+						<tr>
+							<td class="mdl-data-table__cell--non-numeric">Laminate (Gold on Blue)</td>
+							<td>10</td>
+							<td>$2.35</td>
+						</tr>
+					</tbody>
+				</table>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp shadow"&gt;
+	&lt;thead&gt;
+		&lt;tr&gt;
+			&lt;th class="mdl-data-table__cell--non-numeric"&gt;Material&lt;/th&gt;
+			&lt;th&gt;Quantity&lt;/th&gt;
+			&lt;th&gt;Unit price&lt;/th&gt;
+		&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+		&lt;tr&gt;
+			&lt;td class="mdl-data-table__cell--non-numeric"&gt;Acrylic (Transparent)&lt;/td&gt;
+			&lt;td&gt;25&lt;/td&gt;
+			&lt;td&gt;$2.90&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td class="mdl-data-table__cell--non-numeric"&gt;Plywood (Birch)&lt;/td&gt;
+			&lt;td&gt;50&lt;/td&gt;
+			&lt;td&gt;$1.25&lt;/td&gt;
+		&lt;/tr&gt;
+		&lt;tr&gt;
+			&lt;td class="mdl-data-table__cell--non-numeric"&gt;Laminate (Gold on Blue)&lt;/td&gt;
+			&lt;td&gt;10&lt;/td&gt;
+			&lt;td&gt;$2.35&lt;/td&gt;
+		&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Text Fields</h5>
+				<div class="mdl-textfield mdl-js-textfield textfield-demo" style="margin-right:20px;">
+					<input class="mdl-textfield__input" type="text" id="sample1" />
+					<label class="mdl-textfield__label" for="sample1">Text...</label>
+				</div>
+				<div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo">
+					<input class="mdl-textfield__input" type="text" id="sample3" />
+					<label class="mdl-textfield__label" for="sample3">Floating Text...</label>
+				</div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div class="mdl-textfield mdl-js-textfield textfield-demo"&gt;
+	&lt;input class="mdl-textfield__input" type="text" id="sample1" /&gt;
+	&lt;label class="mdl-textfield__label" for="sample1"&gt;Text...&lt;/label&gt;
+&lt;/div&gt;
+&lt;div class="mdl-textfield mdl-js-textfield mdl-textfield--floating-label textfield-demo"&gt;
+	&lt;input class="mdl-textfield__input" type="text" id="sample3" /&gt;
+	&lt;label class="mdl-textfield__label" for="sample3"&gt;Floating Text...&lt;/label&gt;
+&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Switches and Checkboxes</h5>
+				<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2">
+					<input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" />
+					<span class="mdl-checkbox__label">Checkbox</span>
+				</label>
+				<label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2">
+					<input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" />
+					<span class="mdl-radio__label">Option</span>
+				</label><br>
+				<label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1">
+					<input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input" checked />
+					<i class="mdl-icon-toggle__label mdi mdi-format-bold" style="font-size: 26px;"></i>
+				</label>
+				<label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2">
+					<input type="checkbox" id="switch-2" class="mdl-switch__input" />
+					<span class="mdl-switch__label"></span>
+				</label>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox-2"&gt;
+	&lt;input type="checkbox" id="checkbox-2" class="mdl-checkbox__input" /&gt;
+	&lt;span class="mdl-checkbox__label"&gt;Checkbox&lt;/span&gt;
+&lt;/label&gt;
+&lt;label class="mdl-radio mdl-js-radio mdl-js-ripple-effect" for="option-2"&gt;
+	&lt;input type="radio" id="option-2" class="mdl-radio__button" name="options" value="2" /&gt;
+	&lt;span class="mdl-radio__label"&gt;Option&lt;/span&gt;
+&lt;/label&gt;&lt;br&gt;
+&lt;label class="mdl-icon-toggle mdl-js-icon-toggle mdl-js-ripple-effect" for="icon-toggle-1"&gt;
+	&lt;input type="checkbox" id="icon-toggle-1" class="mdl-icon-toggle__input" checked /&gt;
+	&lt;i class="mdl-icon-toggle__label mdi mdi-format-bold" style="font-size: 26px;"&gt;&lt;/i&gt;
+&lt;/label&gt;
+&lt;label class="mdl-switch mdl-js-switch mdl-js-ripple-effect" for="switch-2"&gt;
+	&lt;input type="checkbox" id="switch-2" class="mdl-switch__input" /&gt;
+	&lt;span class="mdl-switch__label"&gt;&lt;/span&gt;
+&lt;/label&gt;
+						</pre>
+					</code>
+				</div>
+			</div>
+			<div id="extras" class="shadow panel">
+       			<h4>Extras</h4>
+       			3rd party plugins and elements
+       			<h5>ChartJS</h5>
+       			<div style="width: 600px;">
+       				<canvas id="line-chart"></canvas>
+       			</div>
+       			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="margin-top:10px;">
+					<div class="mdl-tabs__tab-bar">
+						<a href="#html" class="mdl-tabs__tab is-active">HTML</a>
+						<a href="#javascript" class="mdl-tabs__tab">Javascript</a>
+					</div>
+				    <div class="mdl-tabs__panel is-active" id="html">
+				    	<div class="code-block">
+				    		<code>
+       							<pre>
+&lt;canvas id="line-chart"&gt;&lt;/canvas&gt;
+		       					</pre>
+		       				</code>
+				    	</div>
+				    </div>
+				    <div class="mdl-tabs__panel" id="javascript">
+				    	<div class="code-block">
+				    		<code>
+       							<pre>
+var data = {
+labels: ["January", "February", "March", "April", "May", "June", "July"],
+datasets: [
+        {
+            label: "My First dataset",
+            fillColor: "rgba(41,121,255,0.2)",
+            strokeColor: "rgba(41,121,255,1)",
+            pointColor: "rgba(41,121,255,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(41,121,255,1)",
+            data: [65, 59, 80, 81, 56, 55, 40]
+        },
+        {
+            label: "My Second dataset",
+            fillColor: "rgba(0,213,84,0.2)",
+            strokeColor: "rgba(0,213,84,1)",
+            pointColor: "rgba(0,213,84,1)",
+            pointStrokeColor: "#fff",
+            pointHighlightFill: "#fff",
+            pointHighlightStroke: "rgba(151,187,205,1)",
+            data: [28, 48, 40, 19, 86, 27, 90]
+        }
+    ]
+};
+
+var LineChart = document.getElementById("line-chart").getContext("2d");
+
+var chartCurves = new Chart(LineChart).Line(data, {
+	responsive: true,
+    datasetStroke: false,
+    legendTemplate: false,
+    pointDotRadius : 6,
+    showTooltips: false	       
+});
+		       					</pre>
+		       				</code>
+				    	</div>
+				    </div>
+				</div>
+       			<h5>C3 JS</h5>
+       			<div style="width: 600px;">
+       				<div id="bar-chart"></div>
+       			</div>
+       			<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="margin-top:10px;">
+					<div class="mdl-tabs__tab-bar">
+						<a href="#html2" class="mdl-tabs__tab is-active">HTML</a>
+						<a href="#javascript2" class="mdl-tabs__tab">Javascript</a>
+					</div>
+				    <div class="mdl-tabs__panel is-active" id="html2">
+				    	<div class="code-block">
+				    		<code>
+       							<pre>
+&lt;div id="bar-chart"&gt;&lt;/div&gt;
+		       					</pre>
+		       				</code>
+				    	</div>
+				    </div>
+				    <div class="mdl-tabs__panel" id="javascript2">
+				    	<div class="code-block">
+				    		<code>
+       							<pre>
+var chart2 = c3.generate({
+	bindto: '#bar-chart',
+    data: {
+        columns: [
+            ['Players', 30, 200, 100, 400, 150, 250, 200, 120, 80, 180, 40, 90, 220, 110, 20],
+            ['Times', 30, 150, 80, 250, 150, 270, 240, 180, 280, 140, 120, 70, 140, 190, 220]
+        ],
+        type: 'bar'
+    },
+    bar: {
+        width: {
+            width: 80 // this makes bar width 50% of length between ticks
+        }
+        // or
+        //width: 100 // this makes bar width 100px
+    },
+    color: {
+	  pattern: ['#00D554','#ff4081']
+	},
+	padding: {
+		left: 10,
+		right: 10,
+		top: 10
+	},
+	legend: {
+		hide: true
+	}
+});
+		       					</pre>
+		       				</code>
+				    	</div>
+				    </div>
+				</div>
+       			<h5>Stats</h5>
+       			<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet shadow" style="background: white">
+					<div class="stat">
+						<div class="chart-container">
+							<div id="chart1" data-percent="45"></div>
+							<div class="value"> 45%</div>
+						</div>
+						<div class="stat-values">
+							Goals Achieved 
+							<div class="bottom-stat">
+								<span class="arrow-up"></span>&nbsp;
+								<span class="lighter"> 18% Up this month</span>
+							</div>
+						</div>
+					</div>	
+				</div>
+				<div class="mdl-tabs mdl-js-tabs mdl-js-ripple-effect" style="margin-top:10px;">
+					<div class="mdl-tabs__tab-bar">
+						<a href="#html3" class="mdl-tabs__tab is-active">HTML</a>
+						<a href="#javascript3" class="mdl-tabs__tab">Javascript</a>
+					</div>
+				    <div class="mdl-tabs__panel is-active" id="html3">
+				    	<div class="code-block">
+				    		<code>
+       							<pre>
+@include(&#039;widgets.stat&#039;, array(
+&#039;chartID&#039;=&gt;&#039;chart1&#039;, &#039;value&#039;=&gt;&#039;45&#039;, &#039;header&#039;=&gt;&#039;Goals Achieved&#039;, &#039;arrow&#039;=&gt;&#039;arrow-up&#039;, &#039;footer&#039;=&gt;&#039;18% Up this month&#039;))
+		       					</pre>
+		       				</code>
+				    	</div>
+				    </div>
+				    <div class="mdl-tabs__panel" id="javascript3">
+				    	<div class="code-block">
+				    		<code>
+       							<pre>
+$('#chart1').easyPieChart({
+    lineWidth: 8,
+    scaleColor: false,
+    size: 85,
+    lineCap: "square",
+    barColor: "#fb8c00",
+    trackColor: "#f9dcb8"
+});
+		       					</pre>
+		       				</code>
+				    	</div>
+				    </div>
+				</div>
+				<h5>To-Do</h5>
+				<div class="mdl-cell mdl-cell--4-col mdl-cell--12-col-phone mdl-cell--12-col-tablet shadow grid-margin" style="background: white; position: relative; min-height: 400px;">
+					<div class="panel-header">to do list <span class="cog">
+						<button id="todo" class="mdl-button mdl-js-button mdl-button--icon">
+					        <i class="mdi mdi-settings"></i>
+					    </button>
+					    <ul class="mdl-menu mdl-menu--bottom-right mdl-js-menu mdl-js-ripple-effect" for="todo">
+					        <li class="mdl-menu__item">Some Action</li>
+					        <li class="mdl-menu__item">Another Action</li>
+					        <li class="mdl-menu__item">Disabled Action</li>
+					        <li class="mdl-menu__item">Yet Another Action</li>
+					    </ul></span>
+				    </div>
+				    <div class="to-do">
+				    	<ul>
+				    		<li>
+				    			<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox1">
+					    			<input type="checkbox" id="checkbox1" class="mdl-checkbox__input" />
+					    			<span class="mdl-checkbox__label">Ibe can be the new Sterling.</span>
+					    		</label>
+					    	</li>
+					    	<li>
+						    	<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2">
+						    		<input type="checkbox" id="checkbox2" class="mdl-checkbox__input" />
+						    		<span class="mdl-checkbox__label">Make or break season for Rodgers.</span>
+						    	</label>
+						    </li>
+						    <li>
+							    <label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox3">
+							    	<input type="checkbox" id="checkbox3" class="mdl-checkbox__input" />
+							    	<span class="mdl-checkbox__label">Benteke will show why he's good.</span>
+							    </label>
+							</li>
+							<li>
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox4">
+									<input type="checkbox" id="checkbox4" class="mdl-checkbox__input" />
+									<span class="mdl-checkbox__label">Sturridge will definitely be back.</span>
+								</label>
+							</li>
+							<li>
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox5">
+									<input type="checkbox" id="checkbox5" class="mdl-checkbox__input" />
+									<span class="mdl-checkbox__label">PFA player of the year Coutinho.</span>
+								</label>
+							</li>
+							<li>
+								<label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox6">
+									<input type="checkbox" id="checkbox6" class="mdl-checkbox__input" />
+									<span class="mdl-checkbox__label">We go again.</span>
+								</label>
+							</li>
+				    	</ul>
+				    	<div class="bottom">
+					    	<form action="#">
+					    		<div class="mdl-textfield mdl-js-textfield textfield-demo">
+					    			<input class="mdl-textfield__input" type="text" id="sample1" />
+					    			<label class="mdl-textfield__label" for="sample1">To do...</label>
+					    		</div>
+					    	</form>
+					    	<button class="mdl-button mdl-button--raised mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored btn">
+					    	<i class="mdi mdi-check"></i>
+					    	</button>
+				    	</div>
+				    </div>
+				</div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div class="to-do"&gt;
+	&lt;ul&gt;
+		&lt;li&gt;
+			&lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox1"&gt;
+    			&lt;input type="checkbox" id="checkbox1" class="mdl-checkbox__input" /&gt;
+    			&lt;span class="mdl-checkbox__label"&gt;Ibe can be the new Sterling.&lt;/span&gt;
+    		&lt;/label&gt;
+    	&lt;/li&gt;
+    	&lt;li&gt;
+	    	&lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox2"&gt;
+	    		&lt;input type="checkbox" id="checkbox2" class="mdl-checkbox__input" /&gt;
+	    		&lt;span class="mdl-checkbox__label"&gt;Make or break season for Rodgers.&lt;/span&gt;
+	    	&lt;/label&gt;
+	    &lt;/li&gt;
+	    &lt;li&gt;
+		    &lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox3"&gt;
+		    	&lt;input type="checkbox" id="checkbox3" class="mdl-checkbox__input" /&gt;
+		    	&lt;span class="mdl-checkbox__label"&gt;Benteke will show why he's good.&lt;/span&gt;
+		    &lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox4"&gt;
+				&lt;input type="checkbox" id="checkbox4" class="mdl-checkbox__input" /&gt;
+				&lt;span class="mdl-checkbox__label"&gt;Sturridge will definitely be back.&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox5"&gt;
+				&lt;input type="checkbox" id="checkbox5" class="mdl-checkbox__input" /&gt;
+				&lt;span class="mdl-checkbox__label"&gt;PFA player of the year Coutinho.&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/li&gt;
+		&lt;li&gt;
+			&lt;label class="mdl-checkbox mdl-js-checkbox mdl-js-ripple-effect" for="checkbox6"&gt;
+				&lt;input type="checkbox" id="checkbox6" class="mdl-checkbox__input" /&gt;
+				&lt;span class="mdl-checkbox__label"&gt;We go again.&lt;/span&gt;
+			&lt;/label&gt;
+		&lt;/li&gt;
+	&lt;/ul&gt;
+	&lt;div class="bottom"&gt;
+    	&lt;form action="#"&gt;
+    		&lt;div class="mdl-textfield mdl-js-textfield textfield-demo"&gt;
+    			&lt;input class="mdl-textfield__input" type="text" id="sample1" /&gt;
+    			&lt;label class="mdl-textfield__label" for="sample1"&gt;To do...&lt;/label&gt;
+    		&lt;/div&gt;
+    	&lt;/form&gt;
+&lt;button class="mdl-button mdl-button--raised mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored btn"&gt;
+&lt;i class="mdi mdi-check"&gt;&lt;/i&gt;
+&lt;/button&gt;
+	&lt;/div&gt;
+&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+				<h5>Paper Collapse</h5>
+				<div class="collapse-card shadow" style="margin-bottom: 5px;">
+					<div class="collapse-card__heading">
+						<div class="collapse-card__title">
+							<span class="sender left">Gary Neville </span> <span class="subjecth">Request for loan.</span><span class="time right">48 minutes ago</span>
+						</div>
+					</div>
+					<div class="collapse-card__body">
+						<div class="subject">
+							Request for loan.
+						</div>
+						<div class="body">
+							<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, saepe ex ipsam, nemo maiores eius incidunt. Sint unde laborum, eligendi praesentium voluptates incidunt ex animi dolor nobis possimus odio autem.</p>
+						</div>
+						<div class="footer">
+							Sincerely, <br>
+							Gary Neville
+						</div>
+					</div>
+				</div>
+				<div class="code-block">
+					<code>
+						<pre>
+&lt;div class="collapse-card shadow"&gt;
+&lt;div class="collapse-card__heading"&gt;
+&lt;div class="collapse-card__title"&gt;
+&lt;span class="sender left"&gt;Gary Neville &lt;/span&gt; &lt;span class="subjecth"&gt;Request for loan.&lt;/span&gt;
+&lt;span class="time right"&gt;48 minutes ago&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="collapse-card__body"&gt;
+&lt;div class="subject"&gt;
+Request for loan.
+&lt;/div&gt;
+&lt;div class="body"&gt;
+&lt;p&gt;Lorem ipsum dolor sit amet, consectetur adipisicing elit. Recusandae, saepe ex ipsam, nemo maiores eius incidunt.
+ Sint unde laborum, eligendi praesentium voluptates incidunt ex animi dolor nobis possimus odio autem.&lt;/p&gt;
+&lt;/div&gt;
+&lt;div class="footer"&gt;
+Sincerely, &lt;br&gt;
+Gary Neville
+&lt;a href="#modal" class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--colored right absolute 
+trigger"&gt;
+&lt;i class="mdi mdi-pencil"&gt;&lt;/i&gt;
+&lt;/a&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+						</pre>
+					</code>
+				</div>
+			</div>
+
+        </div>
+    </main>
+</div>
+
+			
+		<script src="js/vendor.js" type="text/javascript"></script>
+		<script type="text/javascript">
+			document.write('<script src="//localhost:35729/livereload.js?snipver=1" type="text/javascript"><\/script>')
+		</script> 
+		
+    
+    
+
+    <script>
+
+        $(function () {
+
+            if ($(window).width()<840) {
+
+                if ($('body').hasClass('extended')==1) {
+                    $('body').removeClass('extended')
+                }     
+            }
+            
+            var sessionLayout = "";
+
+            if (!sessionLayout && $(window).width()>1600) {
+
+                $('.c-hamburger').addClass('is-active');
+                $('body').addClass('extended');        
+                $('.scrollbar').perfectScrollbar(); 
+
+            };
+
+            $( ".c-hamburger" ).click(function() {
+
+                $( this ).toggleClass('is-active');
+                $('body').toggleClass('extended');
+
+                var hasClass = $('body').hasClass('extended');
+
+                $.get('/api/change-layout?layout='+ (hasClass ? 'extended': 'collapsed'));
+
+            });
+
+            if ($('body').hasClass('extended')==1) {
+               $( ".c-hamburger" ).addClass('is-active') ;
+            };
+            $( ".show-menu" ).click(function() {
+                $( this ).parent().find('.sub-menu').toggleClass('visible');
+            });
+
+            $(".animsition").animsition({
+
+                inClass               :   'zoom-in-sm',
+                outClass              :   'zoom-out-sm',
+                inDuration            :    350,
+                outDuration           :    500,
+                linkElement           :   '.animsition-link',
+                // e.g. linkElement   :   'a:not([target="_blank"]):not([href^=#])'
+                loading               :    true,
+                loadingParentElement  :   'body', //animsition wrapper element
+                loadingClass          :   'animsition-loading',
+                unSupportCss          : [ 'animation-duration',
+                '-webkit-animation-duration',
+                '-o-animation-duration'
+                ],
+                //"unSupportCss" option allows you to disable the "animsition" in case the css property in the array is not supported by your browser.
+                //The default setting is to disable the "animsition" in a browser that does not support "animation-duration".
+
+                overlay               :   false,
+                overlayClass          :   'animsition-overlay-slide',
+                overlayParentElement  :   'body'
+            });
+            
+
+            $(window).resize(function  () {
+              
+                if ($(window).width()>1600) {
+                    $('.c-hamburger').addClass('is-active');
+                    $('body').addClass('extended');
+                    $('.scrollbar').perfectScrollbar();      
+
+                };
+                if ($(window).width()<1200) {
+                    $('.c-hamburger').removeClass('is-active');
+                    $('body').removeClass('extended');
+                };  
+                if ($('body').hasClass('extended')==1) {
+                    $('#scroll').addClass('ps-container');
+                    $('.scrollbar').perfectScrollbar();      
+                    $('.scrollbar').perfectScrollbar('update');
+                }
+                else if ($('body').hasClass('extended')==0) {
+                    $('#scroll').removeClass('ps-container');
+                }               
+            });      
+
+            $( ".c-hamburger" ).click(function() {
+
+            if ($('body').hasClass('extended')==1) {
+                $('#scroll').addClass('ps-container');
+                 $('.scrollbar').perfectScrollbar();      
+                $('.scrollbar').perfectScrollbar('update');
+            }
+            else if ($('body').hasClass('extended')==0) {
+                    $('#scroll').removeClass('ps-container');
+                }
+            });
+            $('.theme-picker').click(function() {
+                changeTheme($(this).attr('id'));
+            });
+
+            function changeTheme(theme) {
+
+                $('<link>')
+                .appendTo('head')
+                .attr({type : 'text/css', rel : 'stylesheet'})
+                .attr('href', '/css/app-'+theme+'.css');
+
+                $.get('api/change-theme?theme='+theme);
+            }
+
+
+        });
+    </script>
+
+
+
+    <script>
+    	var data = {
+			    labels: ["January", "February", "March", "April", "May", "June", "July"],
+			    datasets: [
+			        {
+			            label: "My First dataset",
+			            fillColor: "rgba(41,121,255,0.2)",
+			            strokeColor: "rgba(41,121,255,1)",
+			            pointColor: "rgba(41,121,255,1)",
+			            pointStrokeColor: "#fff",
+			            pointHighlightFill: "#fff",
+			            pointHighlightStroke: "rgba(41,121,255,1)",
+			            data: [65, 59, 80, 81, 56, 55, 40]
+			        },
+			        {
+			            label: "My Second dataset",
+			            fillColor: "rgba(0,213,84,0.2)",
+			            strokeColor: "rgba(0,213,84,1)",
+			            pointColor: "rgba(0,213,84,1)",
+			            pointStrokeColor: "#fff",
+			            pointHighlightFill: "#fff",
+			            pointHighlightStroke: "rgba(151,187,205,1)",
+			            data: [28, 48, 40, 19, 86, 27, 90]
+			        }
+			    ]
+			};
+
+			var LineChart = document.getElementById("line-chart").getContext("2d");
+
+	        var chartCurves = new Chart(LineChart).Line(data, {
+	        	responsive: true,
+	            datasetStroke: false,
+	            legendTemplate: false,
+	            pointDotRadius : 6,
+	            showTooltips: false	       
+	        });
+
+	        var chart2 = c3.generate({
+	        	bindto: '#bar-chart',
+			    data: {
+			        columns: [
+			            ['Players', 30, 200, 100, 400, 150, 250, 200, 120, 80, 180, 40, 90, 220, 110, 20],
+			            ['Times', 30, 150, 80, 250, 150, 270, 240, 180, 280, 140, 120, 70, 140, 190, 220]
+			        ],
+			        type: 'bar'
+			    },
+			    bar: {
+			        width: {
+			            width: 80 // this makes bar width 50% of length between ticks
+			        }
+			        // or
+			        //width: 100 // this makes bar width 100px
+			    },
+			    color: {
+				  pattern: ['#00D554','#ff4081']
+				},
+				padding: {
+					left: 10,
+					right: 10,
+					top: 10
+				},
+				legend: {
+					hide: true
+				}
+			}); 
+			$('#chart1').easyPieChart({
+		        lineWidth: 8,
+		        scaleColor: false,
+		        size: 85,
+		        lineCap: "square",
+		        barColor: "#fb8c00",
+		        trackColor: "#f9dcb8"
+		    });
+		    $('.collapse-card').paperCollapse();
+			$('.collapse-card__heading').click(function() {				
+				$(this).find('.subjecth').toggle();
+			})
+    </script>
+	</body>
+
+<!-- Mirrored from material-admin.strapui.com/docs by HTTrack Website Copier/3.x [XR&CO'2014], Mon, 07 Sep 2015 13:24:22 GMT -->
+</html>
