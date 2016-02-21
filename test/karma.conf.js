@@ -41,6 +41,7 @@ module.exports = function(config) {
       '../bower_components/ng-table/dist/ng-table.min.js',
       '../bower_components/angular-route/angular-route.js',
       '../bower_components/angular-resource/angular-resource.js',
+      '../bower_components/angular-ui-tree/dist/angular-ui-tree.js',
       // endbower
       '../app/scripts/**/*.js',
       //'../test/mock/**/*.js',

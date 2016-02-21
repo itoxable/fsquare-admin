@@ -28,6 +28,9 @@ window.app_version = 2.0;
     'materialCalendar',
     'paperCollapse',
     'pascalprecht.translate',
+    'fsquareControlPanelApp.site-settings',
+    'fsquareControlPanelApp.site-pages',
+    'fsquareControlPanelApp.site-style',
     'fsquareControlPanelApp.shopping-coupons',
     'fsquareControlPanelApp.shopping-settings',
     'fsquareControlPanelApp.shopping-inventory'
@@ -156,6 +159,27 @@ window.app_version = 2.0;
         templateUrl: 'views/pages/dashboard/docs.html?v='+window.app_version,
         controller: 'docsCtrl'
     })
+/*---- Fsquare ----*/
+
+    .state('site-settings', {
+        url: '/settings',
+        parent: 'dashboard',
+        templateUrl: 'views/pages/site/settings.html?v='+window.app_version,
+        controller: 'SiteSettingsController'
+    })
+    .state('pages', {
+        url: '/pages',
+        parent: 'dashboard',
+        templateUrl: 'views/pages/site/pages.html?v='+window.app_version,
+        controller: 'SitePagesController'
+    })
+    .state('style', {
+        url: '/style',
+        parent: 'dashboard',
+        templateUrl: 'views/pages/site/style.html?v='+window.app_version,
+        controller: 'SiteStyleController'
+    })
+
 
     .state('shopping', {
         url: '/shopping',
@@ -163,7 +187,7 @@ window.app_version = 2.0;
         templateUrl: 'views/pages/shopping/shopping.html?v='+window.app_version,
         controller: 'DashboardCtrl'
     })
-    .state('settings', {
+    .state('shopping-settings', {
         url: '/shopping',
         parent: 'dashboard',
         templateUrl: 'views/pages/shopping/settings.html?v='+window.app_version,
@@ -229,10 +253,6 @@ window.app_version = 2.0;
        $rootScope.settings.layouts = response.data;
      }, function errorCallback(response) {
      });
-
-    //  $http.get(' http://localhost:8080/api/jsonws/fsquare-shopping-portlet.shoppingstore/get-shopping-asset-categories/group-id/'+$rootScope.groupId ).success(function(data){
-    //    $rootScope.shoppingCategories = data;
-    //  });
 
 
    }]);

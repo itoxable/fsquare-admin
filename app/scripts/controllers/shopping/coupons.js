@@ -139,7 +139,7 @@
 
           {
           getData: function(params) {
-            console.log(params.url());
+            //console.log(params.url());
             return Items.get({groupId:$rootScope.groupId, start:(params.page()-1), end:(params.page()+params.count()-1)}).$promise.then(function(data) {
               $scope.tableParams.total(data.total);
               return data.items;

@@ -168,13 +168,27 @@
 
 
 				<li class="show-subnav">
+					<md-button href="" class=" show-menu" ng-click="subnav('site')">
+						<i class="mdi mdi-chevron-down" ng-class="{'active': showingSubNav=='site'}"></i>
+						<i class="mdi mdi-chart-areaspline"></i> &nbsp;
+						<span class="text">{{ 'Site' | translate }}</span>
+					</md-button>
+					<ul class="sub-menu" ng-class="{'visible': showingSubNav=='site'}">
+						<li ng-class="{active: $state.includes('pages')}"><md-button ui-sref="pages" class=""><span class="text">Pages</span></md-button></li>
+						<li ng-class="{active: $state.includes('site-settings')}"><md-button ui-sref="site-settings" class=""><span class="text">Settings</span></md-button></li>
+						<li ng-class="{active: $state.includes('style')}"><md-button ui-sref="style" class=""><span class="text">Style</span></md-button></li>
+
+					</ul>
+				</li>
+
+				<li class="show-subnav">
 					<md-button href="" class=" show-menu" ng-click="subnav('shopping')">
 						<i class="mdi mdi-chevron-down" ng-class="{'active': showingSubNav=='shopping'}"></i>
 						<i class="mdi mdi-chart-areaspline"></i> &nbsp;
 						<span class="text">{{ 'Shopping' | translate }}</span>
 					</md-button>
 					<ul class="sub-menu" ng-class="{'visible': showingSubNav=='shopping'}">
-						<li ng-class="{active: $state.includes('settings')}"><md-button ui-sref="settings" class=""><span class="text">Settings</span></md-button></li>
+						<li ng-class="{active: $state.includes('shopping-settings')}"><md-button ui-sref="settings" class=""><span class="text">Settings</span></md-button></li>
 						<li ng-class="{active: $state.includes('coupons')}"><md-button ui-sref="coupons" class=""><span class="text">Coupons</span></md-button></li>
 						<li ng-class="{active: $state.includes('inventory')}"><md-button ui-sref="inventory" class=""><span class="text">Inventory</span></md-button></li>
 						<li ng-class="{active: $state.includes('orders')}"><md-button ui-sref="orders" class=""><span class="text">Orders</span></md-button></li>

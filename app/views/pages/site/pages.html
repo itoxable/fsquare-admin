@@ -1,10 +1,161 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+<script type="text/ng-template" id="nodes_renderer.html">
+    <div class="tree-node tree-node-content">
+        <i  ui-tree-handle class="mdi mdi-menu"></i>
 
-</body>
-</html>
+        <a class="" ng-if="node.children && node.children.length > 0" data-nodrag ng-click="toggle(this)">
+            <span class="mdi" ng-class="{'mdi-chevron-up': collapsed, 'mdi-chevron-down': !collapsed}"></span>
+        </a>
+
+        {{node.nameCurrentValue}}
+
+        <a class="pull-right" data-nodrag ng-click="removePage(this)">
+            <span class="mdi mdi-delete">
+                <md-tooltip>
+                    Delete page
+                </md-tooltip>
+            </span>
+        </a>
+
+        <a class="pull-right" data-nodrag ng-click="newSubItem(this)" style="margin-right: 8px;">
+            <span class="mdi mdi-plus">
+                <md-tooltip>
+                    Add child page
+                </md-tooltip>
+            </span>
+        </a>
+
+        <a class="pull-right" data-nodrag ng-click="editPage(this)" style="margin-right: 8px;">
+            <span class="mdi mdi-pencil">
+                <md-tooltip>
+                    Edit page
+                </md-tooltip>
+            </span>
+        </a>
+    </div>
+    <ol ui-tree-nodes="" ng-model="node.children" ng-class="{hidden: collapsed}">
+        <li ng-repeat="node in node.children" ui-tree-node ng-include="'nodes_renderer.html'">
+        </li>
+    </ol>
+</script>
+
+
+<div class="mdl-grid">
+    <div class="layout-row" layout-sm="column" layout-xs="column">
+        <div class="mdl-cell shadow grid-margin" style="background: white;" flex="25" flex-sm="50">
+            <div class="panel-header">
+                Pages
+              <span class="cog">
+                <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+                    <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+                </md-button>
+              </span>
+            </div>
+            <div class="panel-body">
+                <div ui-tree="treeOptions" id="tree-root" class="page-tree">
+                    <ol ui-tree-nodes ng-model="treeData">
+                        <li ng-repeat="node in treeData" ui-tree-node ng-include="'nodes_renderer.html'"></li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+
+        <div class="mdl-cell shadow grid-margin" style="background: white;" flex="70" flex-sm="50">
+            <div class="panel-header">
+                {{selectedPage.nameCurrentValue}}
+              <span class="cog">
+                <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+                    <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+                </md-button>
+              </span>
+            </div>
+            <div class="panel-body">
+                <form action="">
+
+                    <md-input-container>
+                        <input type="text" ng-model="selectedPage.name" placeholder="Name" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="text" ng-model="selectedPage.title" placeholder="Title" >
+                    </md-input-container>
+
+                    <md-input-container>
+                        <input type="url" ng-model="selectedPage.friendlyURL" placeholder="Friendly URL" >
+                    </md-input-container>
+
+                    <md-input-container style="padding-top:20px;">
+                        <textarea ng-model="selectedPage.description" placeholder="Description" rows="6"></textarea>
+                    </md-input-container>
+
+                    <md-select placeholder="Parent Page" ng-model="selectedPage.parentLayoutId" style="min-width: 200px;">
+                        <md-option ng-value="page.layoutId" ng-repeat="page in pages">{{page.nameCurrentValue}}</md-option>
+                    </md-select>
+
+                    <md-switch ng-model="selectedPage.privateLayout" aria-label="Private Layout">
+                        Private Layout
+                    </md-switch>
+
+                    <md-input-container>
+                        <input type="numer" ng-model="selectedPage.priority" placeholder="Order" >
+                    </md-input-container>
+
+                    <md-button class="pull-right md-raised md-primary" ng-click="savePage()">Save</md-button>
+               </form>
+            </div>
+        </div>
+
+    </div>
+    {
+    "colorSchemeId": "",
+    "companyId": 20154,
+    "createDate": 1452686157000,
+    "css": "",
+    "description": "",
+    "descriptionCurrentValue": "",
+    "friendlyURL": "/panel",
+    "groupId": 20181,
+    "hidden": true,
+    "iconImage": false,
+    "iconImageId": 0,
+    "keywords": "",
+    "keywordsCurrentValue": "",
+    "layoutId": 9,
+    "layoutPrototypeLinkEnabled": false,
+    "layoutPrototypeUuid": "",
+    "modifiedDate": 1455989782000,
+    "name": "<?xml version='1.0' encoding='UTF-8'?><root available-locales=\"en_GB\" default-locale=\"en_GB\"><Name language-id=\"en_GB\">Panel</Name></root>",
+    "nameCurrentValue": "Panel",
+    "parentLayoutId": 1,
+    "plid": 27643,
+    "priority": 2,
+    "privateLayout": false,
+    "robots": "",
+    "robotsCurrentValue": "",
+    "sourcePrototypeLayoutUuid": "",
+    "themeId": "classic",
+    "x": "",
+    "titleCurrentValue": "",
+    "type": "url",
+    "typeSettings": "column-1-customizable=false\nlayout-template-id=1_column\nlayoutUpdateable=true\nsitemap-changefreq=daily\nsitemap-include=1\nurl=/web/admin/panel#\n",
+    "userId": 20307,
+    "userName": "Rui Cunha",
+    "uuid": "de9ebbf4-6c90-47a5-a7db-f5531ee7c534",
+    "wapColorSchemeId": "",
+    "wapThemeId": "",
+    "children": []
+    }
+
+<div class="layout-row" layout-sm="column" layout-xs="column">
+    <div class="mdl-cell shadow grid-margin" style="background: white;" flex="65" flex-sm="50">
+        <div class="panel-body">
+            <pre class="code">{{ data | json }}</pre>
+        </div>
+    </div>
+</div>
+</div>
+
+<!--<div class="mdl-grid">-->
+    <!--<div class="mdl-cell shadow mdl-cell&#45;&#45;6-col" style="background: white; height: 100px; padding: 15px;">mdl-cell&#45;&#45;6-col</div>-->
+    <!--<div class="mdl-cell shadow mdl-cell&#45;&#45;4-col" style="background: white; height: 100px; padding: 15px;">mdl-cell&#45;&#45;4-col</div>-->
+    <!--<div class="mdl-cell shadow mdl-cell&#45;&#45;2-col" style="background: white; height: 100px; padding: 15px;">mdl-cell&#45;&#45;2-col</div>-->
+<!--</div>-->

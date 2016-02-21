@@ -9,3 +9,6 @@ Follow the documentation to install and get started with the development:
   - Product URL: http://www.strapui.com/themes/material-dashboard-admin-angular/
 
 Happy coding!
+
+
+https://cdn.materialdesignicons.com/1.1.34/

@@ -46,9 +46,43 @@
         }
       });
     }
+
+
+    function searchInArray(array, field, value, field2, value2){
+      for(var i = 0; i < array.length; i++){
+        var elem = array[i];
+
+        if(field2 && value2){
+          if(elem[field] == value && elem[field2] == value2){
+            return {value: elem, index: i};
+          }
+        }else{
+          var fieldTokens = field.split('.');
+          var tokenVal = elem[field];
+          if(!tokenVal){
+            for(var j = 0; j < fieldTokens.length; j++){
+              var token = fieldTokens[j];
+              if((fieldTokens.length-1) == j){
+                if(tokenVal[token] == value){
+                  return {value: elem, index: i};
+                }
+              }else{
+                tokenVal = elem[token];
+              }
+            }
+          }else{
+            if(tokenVal == value){
+              return {value: elem, index: i};
+            }
+          }
+        }
+      }
+      return undefined;
+    }
     return {
       convertJsonToURL: convertJsonToURL,
-      doGet: doGet
+      doGet: doGet,
+      searchInArray:searchInArray
     };
   }]);
 
