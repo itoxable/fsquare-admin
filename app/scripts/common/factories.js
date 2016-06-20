@@ -7,7 +7,7 @@
 (function() {
   var app = angular.module('factories', []);
 
-  app.factory('utils', ['$http', function($http){
+  app.factory('utils', ['$http', '$rootScope', function($http, $rootScope){
     function convertJsonToURL(obj){
 
       var keys = Object.keys(obj);
@@ -79,10 +79,33 @@
       }
       return undefined;
     }
+
+    function buildServiceContext(serviceContextJson){
+
+      var modifiedDate = new Date().getTime();
+      var userId = $rootScope.userId;
+      var formDate = modifiedDate;
+      var createDate = modifiedDate;
+
+
+      var serviceContext =  "+serviceContext:com.liferay.portal.service.ServiceContext"
+          +"/serviceContext.modifiedDate/"+modifiedDate
+          +"/serviceContext.userId/"+userId
+          +"/serviceContext.formDate/"+formDate
+          +"/serviceContext.createDate/"+createDate;
+
+      for(var key in serviceContextJson) {
+        serviceContext += "/serviceContext."+ key +"/"+serviceContextJson[key];
+      }
+
+      return serviceContext;
+    }
+
     return {
       convertJsonToURL: convertJsonToURL,
       doGet: doGet,
-      searchInArray:searchInArray
+      searchInArray:searchInArray,
+      buildServiceContext:buildServiceContext
     };
   }]);
 

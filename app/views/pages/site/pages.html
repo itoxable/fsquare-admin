@@ -45,6 +45,7 @@
             <div class="panel-header">
                 Pages
               <span class="cog">
+
                 <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
                     <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
                 </md-button>
@@ -63,6 +64,7 @@
             <div class="panel-header">
                 {{selectedPage.nameCurrentValue}}
               <span class="cog">
+                  Last modified {{selectedPage.modifiedDate | date:'dd/MM/yyyy @ h:mma'}}
                 <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
                     <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
                 </md-button>
@@ -72,31 +74,44 @@
                 <form action="">
 
                     <md-input-container>
-                        <input type="text" ng-model="selectedPage.name" placeholder="Name" >
+                        <input type="text" ng-model="selectedPage.name[DEFAULT_LOCALE]" placeholder="Name" >
                     </md-input-container>
 
                     <md-input-container>
-                        <input type="text" ng-model="selectedPage.title" placeholder="Title" >
+                        <input type="text" ng-model="selectedPage.title[DEFAULT_LOCALE]" placeholder="Title" >
                     </md-input-container>
 
                     <md-input-container>
-                        <input type="url" ng-model="selectedPage.friendlyURL" placeholder="Friendly URL" >
+                        <input type="text" ng-model="selectedPage.friendlyURL[DEFAULT_LOCALE]" placeholder="Friendly URL" >
                     </md-input-container>
 
                     <md-input-container style="padding-top:20px;">
-                        <textarea ng-model="selectedPage.description" placeholder="Description" rows="6"></textarea>
+                        <textarea ng-model="selectedPage.description[DEFAULT_LOCALE]" placeholder="Description" rows="6"></textarea>
                     </md-input-container>
 
                     <md-select placeholder="Parent Page" ng-model="selectedPage.parentLayoutId" style="min-width: 200px;">
+                        <md-option ng-value="0">Select</md-option>
                         <md-option ng-value="page.layoutId" ng-repeat="page in pages">{{page.nameCurrentValue}}</md-option>
                     </md-select>
 
-                    <md-switch ng-model="selectedPage.privateLayout" aria-label="Private Layout">
+                    <md-switch ng-model="selectedPage.privateLayout" aria-label="Private">
                         Private Layout
                     </md-switch>
 
+                    <md-switch ng-model="selectedPage.hidden" aria-label="Hidden">
+                        Hidden
+                    </md-switch>
+
                     <md-input-container>
-                        <input type="numer" ng-model="selectedPage.priority" placeholder="Order" >
+                        <input type="number" ng-model="selectedPage.priority" placeholder="Order" >
+                    </md-input-container>
+
+                    <md-input-container style="padding-top:20px;">
+                        <textarea ng-model="selectedPage.robots[DEFAULT_LOCALE]" placeholder="Robots" rows="6"></textarea>
+                    </md-input-container>
+
+                    <md-input-container style="padding-top:20px;">
+                        <textarea ng-model="selectedPage.keywords[DEFAULT_LOCALE]" placeholder="Keywords" rows="6"></textarea>
                     </md-input-container>
 
                     <md-button class="pull-right md-raised md-primary" ng-click="savePage()">Save</md-button>
@@ -105,50 +120,12 @@
         </div>
 
     </div>
-    {
-    "colorSchemeId": "",
-    "companyId": 20154,
-    "createDate": 1452686157000,
-    "css": "",
-    "description": "",
-    "descriptionCurrentValue": "",
-    "friendlyURL": "/panel",
-    "groupId": 20181,
-    "hidden": true,
-    "iconImage": false,
-    "iconImageId": 0,
-    "keywords": "",
-    "keywordsCurrentValue": "",
-    "layoutId": 9,
-    "layoutPrototypeLinkEnabled": false,
-    "layoutPrototypeUuid": "",
-    "modifiedDate": 1455989782000,
-    "name": "<?xml version='1.0' encoding='UTF-8'?><root available-locales=\"en_GB\" default-locale=\"en_GB\"><Name language-id=\"en_GB\">Panel</Name></root>",
-    "nameCurrentValue": "Panel",
-    "parentLayoutId": 1,
-    "plid": 27643,
-    "priority": 2,
-    "privateLayout": false,
-    "robots": "",
-    "robotsCurrentValue": "",
-    "sourcePrototypeLayoutUuid": "",
-    "themeId": "classic",
-    "x": "",
-    "titleCurrentValue": "",
-    "type": "url",
-    "typeSettings": "column-1-customizable=false\nlayout-template-id=1_column\nlayoutUpdateable=true\nsitemap-changefreq=daily\nsitemap-include=1\nurl=/web/admin/panel#\n",
-    "userId": 20307,
-    "userName": "Rui Cunha",
-    "uuid": "de9ebbf4-6c90-47a5-a7db-f5531ee7c534",
-    "wapColorSchemeId": "",
-    "wapThemeId": "",
-    "children": []
-    }
+
 
 <div class="layout-row" layout-sm="column" layout-xs="column">
     <div class="mdl-cell shadow grid-margin" style="background: white;" flex="65" flex-sm="50">
         <div class="panel-body">
-            <pre class="code">{{ data | json }}</pre>
+            <pre class="code">{{ treeData | json }}</pre>
         </div>
     </div>
 </div>

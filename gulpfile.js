@@ -178,3 +178,4 @@ gulp.task('docs', [], function() {
 });
 
 gulp.task('default', ['serve']);
+angular-nestable

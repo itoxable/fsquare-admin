@@ -33,7 +33,10 @@ window.app_version = 2.0;
     'fsquareControlPanelApp.site-style',
     'fsquareControlPanelApp.shopping-coupons',
     'fsquareControlPanelApp.shopping-settings',
-    'fsquareControlPanelApp.shopping-inventory'
+    'fsquareControlPanelApp.shopping-inventory',
+      'fsquareControlPanelApp.sites',
+      'fsquareControlPanelApp.services',
+      'fsquareControlPanelApp.user-settings'
   ]);
 
   app.config(['cfpLoadingBarProvider', function(cfpLoadingBarProvider) {
@@ -161,14 +164,32 @@ window.app_version = 2.0;
     })
 /*---- Fsquare ----*/
 
+    .state('user-details', {
+        url: '/user/details',
+        parent: 'dashboard',
+        templateUrl: 'views/pages/user/details.html?v='+window.app_version,
+        controller: 'UserSettingsController'
+    })
+    .state('password-change', {
+        url: '/details',
+        parent: 'dashboard',
+        templateUrl: 'views/pages/user/change-password.html?v='+window.app_version,
+        controller: 'UserPasswordController'
+    })
     .state('site-settings', {
-        url: '/settings',
+        url: '/site/settings',
         parent: 'dashboard',
         templateUrl: 'views/pages/site/settings.html?v='+window.app_version,
         controller: 'SiteSettingsController'
     })
+        .state('sites', {
+            url: '/sites',
+            parent: 'dashboard',
+            templateUrl: 'views/pages/site/sites.html?v='+window.app_version,
+            controller: 'SitesController'
+        })
     .state('pages', {
-        url: '/pages',
+        url: '/site/pages',
         parent: 'dashboard',
         templateUrl: 'views/pages/site/pages.html?v='+window.app_version,
         controller: 'SitePagesController'
@@ -221,38 +242,68 @@ window.app_version = 2.0;
     });
   });
 
-  app.run(['$rootScope', '$http', 'utils',function($rootScope, $http, utils) {
-     $rootScope.BASE_URL = 'liferay';
-     $rootScope.IMAGE_BASE_URL = '/image/item?img_id';
-     $rootScope.groupId = 20181;
+  app.run(['$rootScope', '$http', 'utils', 'lrayServices', function($rootScope, $http, utils, lrayServices) {
+
+
+      //http://localhost:8080/image/user_male_portrait?img_id=38204&img_id_token=Owf10o%2BZjRaaqlsTgsT%2Ff9IiBtc%3D
+//http://localhost:8080/image/user?img_id=38204&img_id_token=Owf10o%2BZjRaaqlsTgsT%2Ff9IiBtc%3D
      $rootScope.settings = {};
      $rootScope.settings.countries = [];
      $rootScope.settings.layouts = [];
      $rootScope.settings.currencies = ['GBP','USD','EUR'];
+     // $rootScope.contactPrefixes = [];
 
-     $http({
-       method: 'GET',
-       url: $rootScope.BASE_URL+'/api/jsonws/fsquare-shopping-portlet.shoppingstore/get-settings',
-     }).then(function successCallback(response) {
-       $rootScope.settings = response.data;
-     }, function errorCallback(response) {
-     });
+      lrayServices.getContactPrefixes(function(response){
+          //$rootScope.contactPrefixes = response.data;
 
-     $http({
-       method: 'GET',
-       url: $rootScope.BASE_URL+'/api/jsonws/country/get-countries/active/true',
-     }).then(function successCallback(response) {
-       $rootScope.settings.countries = response.data;
-     }, function errorCallback(response) {
-     });
+      });
 
-     $http({
-       method: 'GET',
-       url: $rootScope.BASE_URL+'/fsquare-shopping-portlet/services/shoppinglayouts/groupId/20181',
-     }).then(function successCallback(response) {
-       $rootScope.settings.layouts = response.data;
-     }, function errorCallback(response) {
-     });
+
+      lrayServices.callService('/api/jsonws/user/get-user-by-id/user-id/:userId', {}, {
+          callback: function (response) {
+              lrayServices.currentUser = response.data;
+
+
+              //if (lrayServices.currentUser.portraitId > 0){
+                  lrayServices.callService('api/jsonws/fsquare-shopping-portlet.sitecommonactions/get-user-portrait-url/male/true/portrait-id/:portraitId', lrayServices.currentUser, {
+                      callback: function (res) {
+                          lrayServices.currentUser.portraitUrl = "/"+lrayServices.BASE_URL+res.data;
+                      }
+                  });
+                //}
+
+
+              lrayServices.callService('/api/jsonws/contact/get-contact/contact-id/:contactId', lrayServices.currentUser , {
+                  callback: function (res) {
+                      lrayServices.currentUser.contact = res.data;
+                      $rootScope.currentUser = lrayServices.currentUser;
+
+
+                  }
+              });
+
+
+          }
+      });
+
+
+      lrayServices.callService('/api/jsonws/fsquare-shopping-portlet.shoppingstore/get-settings', {}, {
+          callback: function(response){
+              $rootScope.settings = response.data;
+          }
+      });
+
+      lrayServices.callService('/api/jsonws/country/get-countries/active/true', {}, {
+          callback: function(response){
+              $rootScope.settings.countries = response.data;
+          }
+      });
+
+      lrayServices.callService('/fsquare-shopping-portlet/services/shoppinglayouts/groupId/:groupId', {}, {
+          callback: function(response){
+              $rootScope.settings.layouts = response.data.data;
+          }
+      });
 
 
    }]);

@@ -20,4 +20,25 @@
             return $title.text();
         };
     })
+
+    app.filter('liferayLangToJson', function() {
+        return function(input, field, defaultLocale) {
+            var json = {};
+            try{
+                var xml = $.parseXML(input);
+                var $xml = $(xml);
+                $xml.find(field).each(function(){
+                    var languageId = $(this).attr('language-id');
+                    var val = $(this).text();
+                    json[languageId] = val;
+                });
+
+                return json;
+            }catch(e){
+                json[defaultLocale] = input;
+                return json;
+            }
+
+        };
+    })
 })();

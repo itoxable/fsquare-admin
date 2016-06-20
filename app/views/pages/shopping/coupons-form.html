@@ -1,60 +1,55 @@
 
-
-
 <md-dialog aria-label="Coupon" class="dialog-lg">
-		<form class="">
-		  	<md-toolbar>
-		    	<div class="md-toolbar-tools">
-		     		 <h2>Coupon</h2>
-		     		 <span flex></span>
-		    	</div>
-		    	<i class="mdi mdi-close" ng-click="cancel()"></i>
-		  	</md-toolbar>
-			<md-dialog-content>
-				<md-content layout-padding> 
+	<form class="">
+		<md-toolbar>
+			<div class="md-toolbar-tools">
+				 <h2>Coupon</h2>
+				 <span flex></span>
+			</div>
+			<i class="mdi mdi-close" ng-click="cancel()"></i>
+		</md-toolbar>
+		<md-dialog-content>
+			<md-content layout-padding>
   				<form action="">
   					<md-input-container>
                 <input type="text" ng-model="coupon.code" placeholder="Code" >
-            </md-input-container>
-
-  					<md-input-container>
-                <input ng-model="coupon.name" type="text" placeholder="Name">
-            </md-input-container>
-
-            <md-input-container style="padding-top:20px;">
-                <textarea ng-model="coupon.description" placeholder="Description" rows="6"></textarea>
-            </md-input-container>
-
-
-            <md-select placeholder="Discount Type" ng-model="coupon.discountType" style="min-width: 200px;">
-              <md-option ng-value="type" ng-repeat="type in settings.DISCOUNT_TYPES">{{type}}</md-option>
-            </md-select>
-
-            <div>
-            	<md-datepicker ng-model="startDateValue" md-placeholder="Start Date"></md-datepicker>
-
-            	<md-datepicker ng-model="endDateValue"  md-placeholder="End Date"></md-datepicker>
-						</div>
-
+				</md-input-container>
 
 						<md-input-container>
-                <input ng-model="coupon.minOrder" type="number" placeholder="Minimun Order">
-            </md-input-container>
+					<input ng-model="coupon.name" type="text" placeholder="Name">
+				</md-input-container>
 
-						<div>
-							<md-checkbox ng-model="coupon.active" aria-label="Active?">
-							  Active ?
-							</md-checkbox>
-						</div>
-
-          </form>
+				<md-input-container style="padding-top:20px;">
+					<textarea ng-model="coupon.description" placeholder="Description" rows="6"></textarea>
+				</md-input-container>
 
 
+				<md-select placeholder="Discount Type" ng-model="coupon.discountType" style="min-width: 200px;">
+				  <md-option ng-value="type" ng-repeat="type in settings.DISCOUNT_TYPES">{{type}}</md-option>
+				</md-select>
 
-  				<md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
-  				<md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+				<div>
+					<md-datepicker ng-model="startDateValue" md-placeholder="Start Date"></md-datepicker>
 
-				</md-content>
+					<md-datepicker ng-model="endDateValue"  md-placeholder="End Date"></md-datepicker>
+				</div>
+
+
+				<md-input-container>
+					<input ng-model="coupon.minOrder" type="number" placeholder="Minimun Order">
+				</md-input-container>
+
+				<div>
+					<md-checkbox ng-model="coupon.active" aria-label="Active?">
+					  Active ?
+					</md-checkbox>
+				</div>
+
+			  </form>
+				<md-button class="md-raised" ng-click="cancel()">Cancel</md-button>
+				<md-button class="md-raised md-primary" ng-click="save()">Save</md-button>
+
+			</md-content>
 	  	</md-dialog-content>
   	</form>
 </md-dialog>

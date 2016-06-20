@@ -1,0 +1,50 @@
+<div class="layout-row" layout-sm="column" layout-xs="column">
+    <div class="mdl-cell shadow grid-margin profile-content " style="background: white;" flex="100" flex-sm="100">
+        <div class="panel-header">
+            Sites
+          <span class="cog">
+            <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+                <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+            </md-button>
+          </span>
+        </div>
+        <div class="panel-body profile-body">
+
+            <md-content class="md-padding">
+                <div class="info-container">
+
+                    <div class="cell" ng-repeat="site in sites">
+                        <table class="mdl-data-table mdl-js-data-table shadow">
+                            
+                            <thead>
+                            <tr>
+                                <th class="table-header" colspan="2">{{site.name}} <i class="mdi mdi-briefcase-check left"></i> <i class="mdi mdi-pencil right"></i></th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                            <tr>
+                                <td class="table-left">accountId</td>
+                                <td class="table-right">{{site.account.accountId}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table-left">companyId</td>
+                                <td class="table-right">{{site.account.companyId}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table-left">name</td>
+                                <td class="table-right">{{site.account.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="table-left">URL</td>
+                                <td class="table-right">{{site.virtualHost.hostname}}</td>
+                            </tr>
+
+                            </tbody>
+                        </table>
+                    </div>
+
+                </div>
+            </md-content>
+        </div>
+    </div>
+</div>

@@ -4,7 +4,8 @@
     "node": ">=0.10.0"
   },
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "start": "node app.js"
   },
   "devDependencies": {
     "apache-server-configs": "^2.11.0",
@@ -52,6 +53,11 @@
     "yargs": "^3.3.1"
   },
   "dependencies": {
-    "angular-resource": "^1.5.0"
+    "angular-resource": "^1.5.0",
+    "body-parser": "^1.15.0",
+    "ejs": "^2.4.1",
+    "express": "^4.13.4",
+    "soap": "^0.13.0",
+    "winston": "^2.2.0"
   }
 }

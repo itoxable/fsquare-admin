@@ -1,3 +1,56 @@
+
+
+
 <div class="layout-row" layout-sm="column" layout-xs="column">
-    <div class="mdl-cell shadow grid-margin" style="background: white;" flex="100" flex-sm="100"></div>
+    <div class="mdl-cell shadow grid-margin" style="background: white;" flex="100" flex-sm="100">
+        <div class="panel-header">
+            Site settings
+          <span class="cog">
+            <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+                <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+            </md-button>
+          </span>
+        </div>
+        <div class="panel-body">
+            <form action="">
+
+                <md-input-container>
+                    <input type="text" ng-model="site.name" placeholder="Name" >
+                </md-input-container>
+
+                <md-input-container>
+                    <textarea ng-model="site.description" placeholder="Description" rows="6"></textarea>
+                </md-input-container>
+
+                <md-switch ng-model="site.active" aria-label="Active">
+                    Active
+                </md-switch>
+                <md-button class="pull-right md-raised md-primary" ng-click="saveSettings()">Save</md-button>
+            </form>
+        </div>
+
+    </div>
 </div>
+
+
+<!--//{-->
+<!--//    "active": true,-->
+<!--//    "classNameId": 20001,-->
+<!--//    "classPK": 20181,-->
+<!--//    "companyId": 20154,-->
+<!--//    "creatorUserId": 20158,-->
+<!--//    "description": "qwerty",-->
+<!--//    "friendlyURL": "/guest",-->
+<!--//    "groupId": 20181,-->
+<!--//    "liveGroupId": 0,-->
+<!--//    "manualMembership": true,-->
+<!--//    "membershipRestriction": 0,-->
+<!--//    "name": "Guest",-->
+<!--//    "parentGroupId": 0,-->
+<!--//    "remoteStagingGroupCount": 0,-->
+<!--//    "site": true,-->
+<!--//    "treePath": "/20181/",-->
+<!--//    "type": 1,-->
+<!--//    "typeSettings": "breadcrumbShowParentGroups=true\ncontentSharingWithChildrenEnabled=-1\ndirectoryIndexingEnabled=false\nfalse-robots.txt=User-Agent: *_SAFE_NEWLINE_CHARACTER_Disallow:_SAFE_NEWLINE_CHARACTER_Sitemap: http://localhost/sitemap.xml\ninheritLocales=true\nlanguageId=en_GB\nlocales=ca_ES,zh_CN,en_GB,en_US,fi_FI,fr_FR,de_DE,iw_IL,hu_HU,ja_JP,pt_BR,es_ES\nmergeGuestPublicPages=false\ntrashEnabled=true\n",-->
+<!--//    "uuid": "26ca530b-09ea-4dd5-be85-c0f67ba8b3ce"-->
+<!--//}-->

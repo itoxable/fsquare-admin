@@ -4,24 +4,25 @@
 
 'use strict';
 (function() {
-  var app = angular.module('fsquareControlPanelApp.site-pages',['ui.tree', 'ngMaterial', 'fsquareControlPanelApp.filters', 'factories']);
+  var app = angular.module('fsquareControlPanelApp.site-pages',['ui.tree', 'ngMaterial', 'fsquareControlPanelApp.filters', 'factories', 'fsquareControlPanelApp.services']);
 
-  app.controller('SitePagesController', ['$scope', '$rootScope', '$route', '$location', '$resource', '$mdDialog', 'orderByFilter', 'liferayLangXmlFilter', 'utils',
-    function ($scope, $rootScope, $route, $location, $resource, $mdDialog, orderByFilter, liferayLangXmlFilter, utils) {
+  app.controller('SitePagesController', ['$scope', '$route', '$location','$mdDialog', 'orderByFilter', 'liferayLangToJsonFilter', 'utils', 'lrayServices',
+    function ($scope, $route, $location, $mdDialog, orderByFilter, liferayLangToJsonFilter, utils, lrayServices) {
 
-      var PagesResource = $resource($rootScope.BASE_URL+'/api/jsonws/layout/get-layouts/group-id/:groupId/private-layout/:private',
-        {
-          groupId:'@groupId',
-          private:'@private'
-        },{
-        get: {
-          method:'GET',
-          isArray:true
-        }
-      });
+      //var PagesResource = $resource($rootScope.BASE_URL+'/api/jsonws/layout/get-layouts/group-id/:groupId/private-layout/:private',
+      //  {
+      //    groupId:'@groupId',
+      //    private:'@private'
+      //  },{
+      //  get: {
+      //    method:'GET',
+      //    isArray:true
+      //  }
+      //});
 
       $scope.pages = [];
       $scope.treeData = [];
+
       $scope.transform = function(data){
         $scope.pages = data;
         data = orderByFilter(data, 'priority')
@@ -49,79 +50,22 @@
         }
       }
 
-
-      PagesResource.get({
-        groupId:$rootScope.groupId,
-        private:false
-      }).$promise.then(function(data) {
-        return $scope.transform(data);
+      lrayServices.callService('/api/jsonws/layout/get-layouts/group-id/:groupId/private-layout/:private', {private:false}, {
+        callback: function(response){
+          $scope.transform(data);
+        }
       });
+
+
 
       var PagePriorityResource = $resource($rootScope.BASE_URL+'/api/jsonws/layout/update-priority/plid/:plid/priority/:priority',
           {plid:'@plid', priority:'@priority'});
 
-      var PageDeleteResource = $resource($rootScope.BASE_URL+'/api/jsonws/layout/delete-layout/plid/:plid',
-          {plid:'@plid'});
-      //"colorSchemeId": "",
-      //    "companyId": 20154,
-      //    "createDate": 1452686157000,
-      //    "css": "",
-      //    "description": "",
-      //    "descriptionCurrentValue": "",
-      //    "friendlyURL": "/panel",
-      //    "groupId": 20181,
-      //    "hidden": true,
-      //    "iconImage": false,
-      //    "iconImageId": 0,
-      //    "keywords": "",
-      //    "keywordsCurrentValue": "",
-      //    "layoutId": 9,
-      //    "layoutPrototypeLinkEnabled": false,
-      //    "layoutPrototypeUuid": "",
-      //    "modifiedDate": 1455989782000,
-      //    "name": "<?xml version='1.0' encoding='UTF-8'?><root available-locales=\"en_GB\" default-locale=\"en_GB\"><Name language-id=\"en_GB\">Panel</Name></root>",
-      //    "nameCurrentValue": "Panel",
-      //    "parentLayoutId": 1,
-      //    "plid": 27643,
-      //    "priority": 2,
-      //    "privateLayout": false,
-      //    "robots": "",
-      //    "robotsCurrentValue": "",
-      //    "sourcePrototypeLayoutUuid": "",
-      //    "themeId": "classic",
-      //    "x": "",
-      //    "titleCurrentValue": "",
-      //    "type": "url",
-      //    "typeSettings": "column-1-customizable=false\nlayout-template-id=1_column\nlayoutUpdateable=true\nsitemap-changefreq=daily\nsitemap-include=1\nurl=/web/admin/panel#\n",
-      //    "userId": 20307,
-      //    "userName": "Rui Cunha",
-      //    "uuid": "de9ebbf4-6c90-47a5-a7db-f5531ee7c534",
-      //    "wapColorSchemeId": "",
-      //    "wapThemeId": "",
-      //    "children": []
-      var PageSaveResource = $resource($rootScope.BASE_URL+'/api/jsonws/layout/update-layout/group-id/:groupId/private-layout/:privateLayout/layout-id/:layoutId/parent-layout-id/:parentLayoutId'+
-          '/locale-names-map/:localeNamesMap/locale-titles-map/:localeTitlesMap/description-map/:descriptionMap/keywords-map/:keywordsMap/robots-map/:robotsMap/type/:type/hidden/:hidden/'+
-          'friendly-url/:friendlyUrl/icon-image/:iconImage/icon-bytes/iconBytes',
-          {
-            groupId:'@groupId',
-            privateLayout:'@privateLayout',
-            layoutId:'@layoutId',
-            parentLayoutId:'@parentLayoutId',
-            localeNamesMap:'@localeNamesMap',
-            localeTitlesMap:'@localeTitlesMap',
-            descriptionMap:'@descriptionMap',
-            keywordsMap:'@keywordsMap',
-            robotsMap:'@robotsMap',
-            type:'@type',
-            hidden:'@hidden',
-            friendlyUrl:'@friendlyUrl',
-            iconImage:'@iconImage',
-            iconBytes:'@iconBytes'
-
-          });
+      //var PageDeleteResource = $resource($rootScope.BASE_URL+'/api/jsonws/layout/delete-layout/plid/:plid',
+      //    {plid:'@plid'});
 
 
-          $scope.treeOptions = {
+      $scope.treeOptions = {
         accept: function(sourceNodeScope, destNodesScope, destIndex) {
           /*PagesResource.get({
             plid:$rootScope.groupId,
@@ -148,8 +92,21 @@
         $mdDialog.show(confirm).then(function() {
 
           //PageDeleteResource.get({
-          //  plid:node.modelValue.plid
-          //}).$promise.then(function(data) {node.remove(node);});
+          //  plid:node.$modelValue.plid
+          //}).$promise.then(function(data){
+          //  node.remove(node);
+          //  $scope.showToast("Page Deleted");
+          //});
+
+
+          lrayServices.callService('/api/jsonws/layout/delete-layout/plid/:plid', {plid:node.$modelValue.plid}, {
+            callback: function(response){
+              node.remove(node);
+              $scope.showToast("Page Deleted");
+            }
+          });
+
+
 
         }, function() {
           $scope.status = 'You decided to keep your debt.';
@@ -158,27 +115,65 @@
 
       $scope.editPage = function(page){
         $scope.selectedPage = page.$modelValue;
+        $scope.selectedPage.name = liferayLangToJsonFilter($scope.selectedPage.name, "Name");
+        $scope.selectedPage.description = liferayLangToJsonFilter($scope.selectedPage.description, "Description");
+        $scope.selectedPage.title = liferayLangToJsonFilter($scope.selectedPage.title, "Title");
+        $scope.selectedPage.keywords = liferayLangToJsonFilter($scope.selectedPage.keywords, "Keywords");
+        $scope.selectedPage.robots = liferayLangToJsonFilter($scope.selectedPage.robots, "Robots");
+        $scope.selectedPage.friendlyURL = liferayLangToJsonFilter($scope.selectedPage.friendlyURL, "FriendlyURL", $rootScope.DEFAULT_LOCALE);
       }
+
 
       $scope.savePage = function(){
 
-        $scope.PageSaveResource.save({
-          groupId: $scope.selectedPage.groupId,
-          privateLayout: $scope.selectedPage.privateLayout,
-          layoutId: $scope.selectedPage.layoutId,
-          parentLayoutId: $scope.selectedPage.parentLayoutId,
-          localeNamesMap: $scope.selectedPage.localeNamesMap,
-          localeTitlesMap: $scope.selectedPage.localeTitlesMap,
-          descriptionMap: $scope.selectedPage.descriptionMap,
-          keywordsMap: $scope.selectedPage.keywordsMap,
-          robotsMap: $scope.selectedPage.robotsMap,
-          type: $scope.selectedPage.type,
-          hidden: $scope.selectedPage.hidden,
-          friendlyUrl: $scope.selectedPage.friendlyUrl,
-          iconImage: $scope.selectedPage.iconImage,
-          iconBytes: $scope.selectedPage.iconBytes
+        var url = '/api/jsonws/fsquare-shopping-portlet.sitecommonactions/update-layout/:groupId/:privateLayout/:layoutId/:parentLayoutId'+
+            '/:localeNamesMap/:localeTitlesMap/:descriptionMap/:keywordsMap/:robotsMap/:type/:hidden'+
+            '/:friendlyURLMap/:iconImage/:iconBytes/:serviceContext';
 
+        var queryJson = {
+          groupId: (!$scope.selectedPage.groupId || $scope.selectedPage.groupId == "")?"-group-id":"group-id/" + $scope.selectedPage.groupId,
+          privateLayout: "private-layout/" + $scope.selectedPage.privateLayout,
+          layoutId: "layout-id/" + $scope.selectedPage.layoutId,
+          parentLayoutId: "parent-layout-id/" + $scope.selectedPage.parentLayoutId,
+          localeNamesMap: (Object.keys($scope.selectedPage.name).length == 0)?"-locale-names-map":"locale-names-map/" + JSON.stringify($scope.selectedPage.name),
+          localeTitlesMap: (Object.keys($scope.selectedPage.title).length == 0)?"-locale-titles-map":"locale-titles-map/" + JSON.stringify($scope.selectedPage.title),
+          descriptionMap: (Object.keys($scope.selectedPage.description).length == 0)?"-description-map":"description-map/" + JSON.stringify($scope.selectedPage.description),
+          keywordsMap: (Object.keys($scope.selectedPage.keywords).length == 0)?"-keywords-map":"keywords-map/" + JSON.stringify($scope.selectedPage.keywords),
+          robotsMap: (Object.keys($scope.selectedPage.robots).length == 0)?"-robots-map":"robots-map/" + JSON.stringify($scope.selectedPage.robots),
+          type: (!$scope.selectedPage.type || $scope.selectedPage.type == "")?"-type":"type/" + $scope.selectedPage.type,
+          hidden: "hidden/" + $scope.selectedPage.hidden,
+          friendlyURLMap: (Object.keys($scope.selectedPage.friendlyURL).length == 0)?"-friendly-url-map":"friendly-url-map/" + JSON.stringify($scope.selectedPage.friendlyURL),
+          iconImage: (!$scope.selectedPage.iconImage || $scope.selectedPage.iconImage == "")?"-icon-image":"icon-image/" + ($scope.selectedPage.iconImage),
+          iconBytes: (!$scope.selectedPage.iconBytes || $scope.selectedPage.iconBytes == "")?"-icon-bytes":"icon-bytes/" + $scope.selectedPage.iconBytes,
+          serviceContext: utils.buildServiceContext({})
+        }
+
+        //for(var key in queryJson) {
+        //  var replaceable = ":"+key;
+        //  if(url.indexOf(key) > -1){
+        //    url = url.replace(replaceable, queryJson[key]);
+        //  }
+        //}
+        //console.log(url);
+
+
+
+        lrayServices.callService(url, queryJson, {
+          msg:"Page Updated",
+          callback: function(response){
+            node.remove(node);
+            $scope.showToast("Page Deleted");
+          }
         });
+
+        //$http({
+        //  method: 'GET',
+        //  url: url
+        //}).then(function successCallback(response) {
+        //  $scope.showToast("Page Updated");
+        //}, function errorCallback(response) {
+        //});
+
       }
 
 

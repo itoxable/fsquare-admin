@@ -1,0 +1,167 @@
+<div class="layout-row" layout-sm="column" layout-xs="column">
+    <div class="mdl-cell shadow grid-margin" style="background: white;" flex="100" flex-sm="100">
+        <div class="panel-header">
+            User Details
+          <span class="cog">
+            <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+                <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+            </md-button>
+          </span>
+        </div>
+        <div class="panel-body">
+            <form action="">
+
+                <md-input-container>
+                    <label>Title</label>
+                    <md-select ng-model="user.contact.prefixId">
+                        <md-option ng-repeat="prefix in contactPrefixes" value="{{prefix.listTypeId}}">
+                            {{prefix.name}}
+                        </md-option>
+                    </md-select>
+                </md-input-container>
+
+                <md-input-container>
+                    <input type="text" ng-model="user.screenName" placeholder="Username" >
+                </md-input-container>
+
+                <md-input-container>
+                    <input type="text" ng-model="user.firstName" placeholder="First Name" >
+                </md-input-container>
+
+                <md-input-container>
+                    <input type="text" ng-model="user.lastName" placeholder="Last Name" >
+                </md-input-container>
+
+
+                <md-input-container>
+                    <input type="email" ng-model="user.emailAddress" placeholder="Email" >
+                </md-input-container>
+
+
+                <md-select ng-model="user.languageId">
+                    <md-option ng-repeat="state in states" value="{{state.abbrev}}">
+                        {{state.abbrev}}
+                    </md-option>
+                </md-select>
+
+
+
+                <md-input-container>
+                    <textarea ng-model="user.comments" placeholder="Comments" rows="6"></textarea>
+                </md-input-container>
+
+                <!--<md-switch ng-model="user.active" aria-label="Active">-->
+                    <!--Active-->
+                <!--</md-switch>-->
+                <md-button class="pull-right md-raised md-primary" ng-click="saveUser()">Save</md-button>
+            </form>
+        </div>
+
+    </div>
+</div>
+
+<div class="layout-row" layout-sm="column" layout-xs="column">
+    <div class="mdl-cell shadow grid-margin" style="background: white;" flex="100" flex-sm="100">
+        <div class="panel-header">
+            Site settings
+          <span class="cog">
+            <md-button class="md-icon-button" aria-label="Settings" style="line-height: 0 !important;">
+                <md-icon ><i class="mdi mdi-refresh" style="color: #fff;"></i></md-icon>
+            </md-button>
+          </span>
+        </div>
+        <div class="panel-body">
+
+
+            <div class="button" ngf-select ng-model="file" ngf-multiple="false">Select File</div>
+            on file change multiple:
+            <div class="button" ngf-select="upload($files)" ngf-multiple="true">Select File</div>
+            Drop File:
+            <div ngf-drop ngf-select ng-model="files" class="drop-box"
+                 ngf-drag-over-class="'dragover'" ngf-multiple="true" ngf-allow-dir="true"
+                 accept="image/*"
+                 ngf-pattern="'image/*,application/pdf'">Drop pdfs or images here or click to upload</div>
+            <div ngf-no-file-drop>File Drag/Drop is not supported for this browser</div>
+            Files:
+            <ul>
+                <li ng-repeat="f in files" style="font:smaller">{{f.name}} {{f.$error}} {{f.$errorParam}}</li>
+            </ul>
+            Upload Log:
+            <pre>{{log}}</pre>
+</div>
+    </div>
+</div>
+
+<!--{-->
+<!--"accountId": 20156,-->
+<!--"aimSn": "",-->
+<!--"birthday": 0,-->
+<!--"classNameId": 20005,-->
+<!--"classPK": 20307,-->
+<!--"companyId": 20154,-->
+<!--"contactId": 20308,-->
+<!--"createDate": 1450180616000,-->
+<!--"emailAddress": "ruicunh@gmail.com",-->
+<!--"employeeNumber": "",-->
+<!--"employeeStatusId": "",-->
+<!--"facebookSn": "",-->
+<!--"firstName": "Rui",-->
+<!--"hoursOfOperation": "",-->
+<!--"icqSn": "",-->
+<!--"jabberSn": "",-->
+<!--"jobClass": "",-->
+<!--"jobTitle": "",-->
+<!--"lastName": "Cunha",-->
+<!--"male": true,-->
+<!--"middleName": "",-->
+<!--"modifiedDate": 1450180616000,-->
+<!--"msnSn": "",-->
+<!--"mySpaceSn": "",-->
+<!--"parentContactId": 0,-->
+<!--"prefixId": 0,-->
+<!--"skypeSn": "",-->
+<!--"smsSn": "",-->
+<!--"suffixId": 0,-->
+<!--"twitterSn": "",-->
+<!--"userId": 20307,-->
+<!--"userName": "",-->
+<!--"ymSn": ""-->
+<!--}-->
+
+<!--{-->
+<!--"agreedToTermsOfUse": true,-->
+<!--"comments": "",-->
+<!--"companyId": 20154,-->
+<!--"contactId": 20308,-->
+<!--"createDate": 1450180616000,-->
+<!--"defaultUser": false,-->
+<!--"emailAddress": "ruicunh@gmail.com",-->
+<!--"emailAddressVerified": true,-->
+<!--"facebookId": 0,-->
+<!--"failedLoginAttempts": 0,-->
+<!--"firstName": "Rui",-->
+<!--"graceLoginCount": 0,-->
+<!--"greeting": "Welcome Rui Cunha!",-->
+<!--"jobTitle": "",-->
+<!--"languageId": "en_GB",-->
+<!--"lastFailedLoginDate": 1450479444000,-->
+<!--"lastLoginDate": 1456265322000,-->
+<!--"lastLoginIP": "127.0.0.1",-->
+<!--"lastName": "Cunha",-->
+<!--"ldapServerId": -1,-->
+<!--"lockout": false,-->
+<!--"lockoutDate": null,-->
+<!--"loginDate": 1459172532000,-->
+<!--"loginIP": "127.0.0.1",-->
+<!--"middleName": "",-->
+<!--"modifiedDate": 1450180616000,-->
+<!--"openId": "",-->
+<!--"portraitId": 0,-->
+<!--"reminderQueryAnswer": "monteiro",-->
+<!--"reminderQueryQuestion": "what-is-your-father's-middle-name",-->
+<!--"screenName": "ruicunh",-->
+<!--"status": 0,-->
+<!--"timeZoneId": "UTC",-->
+<!--"userId": 20307,-->
+<!--"uuid": "96c03711-da51-4cc5-ae18-2670d9c50e85"-->
+<!--}-->

@@ -42,6 +42,7 @@ module.exports = function(config) {
       '../bower_components/angular-route/angular-route.js',
       '../bower_components/angular-resource/angular-resource.js',
       '../bower_components/angular-ui-tree/dist/angular-ui-tree.js',
+      '../bower_components/ng-file-upload/ng-file-upload.js',
       // endbower
       '../app/scripts/**/*.js',
       //'../test/mock/**/*.js',
